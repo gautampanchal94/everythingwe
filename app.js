@@ -48,12 +48,18 @@ passport.use(User.createStrategy());
 passport.serializeUser(User.serializeUser());
 passport.deserializeUser(User.deserializeUser());
 
+// Routes
+
 app.get("/", (req, res) => {
   res.render("home");
 });
 
 app.get("/login", (req, res) => {
-  res.render("login");
+  if (req.isAuthenticated()) {
+    res.redirect("history");
+  } else {
+    res.render("login");
+  }
 });
 
 app.get("/register", (req, res) => {
@@ -68,6 +74,31 @@ app.get("/history", (req, res) => {
   }
 });
 
+app.get("/about", (req, res) => {
+  if (req.isAuthenticated()) {
+    res.render("about");
+  } else {
+    res.redirect("/login");
+  }
+});
+
+app.get("/wishlist", (req, res) => {
+  if (req.isAuthenticated()) {
+    res.render("wishlist");
+  } else {
+    res.redirect("/login");
+  }
+});
+
+app.get("/faq", (req, res) => {
+  if (req.isAuthenticated()) {
+    res.render("faq");
+  } else {
+    res.redirect("/login");
+  }
+});
+
+//
 app.post("/register", (req, res) => {
   if (validator.validate(req.body.username)) {
     User.register(
@@ -93,23 +124,20 @@ app.post("/register", (req, res) => {
   }
 });
 
-app.post("/login", (req, res) => {
-  const user = new User({
-    username: req.body.username,
-    password: req.body.password,
-  });
+app.post(
+  "/login",
+  passport.authenticate("local", {
+    successRedirect: "/",
+    failureRedirect: "/login",
+  }),
+  function (req, res) {}
+);
 
-  req.login(user, function (err) {
-    if (err) {
-      console.log(err);
-    } else {
-      passport.authenticate("local")(req, res, () => {
-        res.redirect("/history");
-      });
-    }
-  });
+app.get("/logout", function (req, res) {
+  req.logout();
+  res.redirect("/");
 });
 
-app.listen(3000, () => {
-  console.log("listening on port 3000");
+app.listen(process.env.PORT, () => {
+  console.log("App Started!!");
 });
