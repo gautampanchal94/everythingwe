@@ -1,0 +1,38 @@
+<%- include('partials/header') %>
+
+<div class="container bg-slate-100">
+    <div class="min-h-screen flex flex-col items-center justify-center text-center">
+        <div class="bg-white w-2/5 p-8 shadow divide-y divide-slate-400">
+            <!-- register -->
+            <div class="form mb-3">
+                <h1 class="text-3xl text-sky-500 text-bold">
+                    Create Account
+                </h1>
+                <form action="/register" method="post">
+                    <div class="m-2 text-left">
+                          <label for="name" class="block">Name</label>
+                          <input type="text" name="name" id="name" class="input" placeholder="John Doe" required>
+                    </div>
+                    <div class="m-2 text-left">
+                        <label for="email" class="block">Email</label>
+                        <input type="email" name="username" id="email" class="input" placeholder="johndoe@example.com" required>
+                        <p class="text-sm text-gray-400">&ast;We will not share your email</p>
+                    </div>
+                    <div class="m-2 text-left">
+                        <label for="password" class="block">Password</label>
+                        <input type="password" name="password" id="password" class="input" placeholder="Password" required>
+                    </div>
+                    <button type="submit" class="btn-primary">Create Account</button>
+                </form>
+            </div>
+            <div class="Oauth mt-3">
+              <button class="btn-secondary flex items-center justify-center">
+                  <i class='bx bxl-google bx-sm mx-1'></i>
+                  <span class="text-lg">Sign up with Google</span>
+              </button>
+            </div>
+        </div>
+    </div>
+</div>
+
+<%- include('partials/footer') %>
