@@ -1,0 +1,25 @@
+<%- include('partials/header') %>
+
+<div class="container bg-slate-100">
+    <div class="min-h-screen flex flex-col items-center justify-center text-center">
+        <div class="bg-white w-2/5 p-8 shadow">
+            <!-- post --> 
+            <div class="mb-3">
+                <h6 class="text-3xl text-sky-500 text-bold"><i class='mx-2 block bx bxs-edit bx-md'></i>Add Post</h6>
+                <form action="/compose" method="POST" class="">
+                    <div class="m-2 text-left">
+                        <label for="postTitle" class="block">Title</label>
+                        <input type="text" name="postTitle" id="postTitle" class="input" placeholder="Title" required>
+                    </div>
+                    <div class="m-2 text-left">
+                        <label for="postContent" class="block">Story</label>
+                        <textarea name="postContent" id="postBody" rows="5" class="input placeholder:italic placeholder:text-slate-400" placeholder="Tell your story!"></textarea>
+                    </div>
+                    <button type="submit" class="btn-primary">Post</button>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
+
+<%- include('partials/footer') %>

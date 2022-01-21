@@ -2,4 +2,37 @@
 
 <%- include('components/navbar') %>
 
+<div class="flex-grow">
+    
+    <div class="container mt-6">
+        <h1 class="page-title">
+            You and me had a whole lot of history
+        </h1>
+        <div class="container mx-auto mt-8 w-11/12 lg:w-3/4">
+            <div class="card">
+                <h2 class="card-title">Online best-friend's best-friend</h2>
+                <p class="card-body">
+                    It was 2014 when i was introduced to you by my Facebook best-friend. Of course, you were his best-friend and i would've known it just as you do. It was 2015 when i came to know after a few months of his suicide that he is no more. I tried to contact you because you were the only person i knew and that you still wouldn't reply exactly what happened and i had to text his sister and get to know what happened actually.
+                </p>
+            </div>
+
+        <% posts.forEach(function(post){ %>
+                <div class="card">
+                    <h2 class="card-title"> 
+                        <%= post.title %>
+                    </h2>
+                    <p class="card-body">
+                        <%= post.content %>
+                    </p>
+                </div>
+            <% }) %>
+        </div>
+    </div>
+
+    <a href="/compose"><button name="postModal" value="open" class="m-4 px-3 py-4 origin-bottom-right fixed bottom-14 right-0 z-20 bg-sky-500 text-white rounded-full"><i class='bx-fw bx bxs-edit bx-sm'></i></button></a>
+    
+</div>
+
+
+<%- include('components/bottom-bar') %>
 <%- include('partials/footer') %>

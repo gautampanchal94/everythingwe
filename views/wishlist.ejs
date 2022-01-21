@@ -2,4 +2,48 @@
 
 <%- include('components/navbar') %>
 
+<div class="flex-grow">
+
+    <div class="container mt-6">
+        <h1 class="page-title">Our Wishlist</h1>
+    
+        <div class="container mx-auto mt-8 w-11/12 lg:w-1/2 ">
+            <div class="block">
+                <img class="mx-auto object-cover w-3/5 h-56 shadow rounded-xl"
+                    src="https://www.hyperui.dev/photos/university-1.jpeg" alt="" />
+    
+                <div class="mx-auto p-4 w-3/5">
+                    <h5 class="text-xl font-bold text-gray-900">
+                        Finding the Journey to Mordor
+                    </h5>
+                    <p class="mt-2 text-gray-500">
+                        Lorem ipsum dolor sit amet consectetur, adipisicing elit. Ipsa libero
+                        labore natus atque, ducimus sed.
+                    </p>
+                </div>
+            </div>
+    
+    
+            <% wishes.forEach(function(wish){ %>
+                <div class=".wish-card">
+                    <img class="wish-card-img"
+                        src="<%= wish.image %>" alt="" />
+        
+                    <div class="wish-card-body">
+                        <h5 class="wish-card-title">
+                            <%= wish.title %>
+                        </h5>
+                        <p class="wish-card-content">
+                            <%= wish.content %>
+                        </p>
+                    </div>
+                </div>
+            <% }) %>
+        </div>
+    </div>
+
+</div>
+
+<%- include('components/bottom-bar') %>
+
 <%- include('partials/footer') %>
