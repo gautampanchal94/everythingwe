@@ -1,6 +1,6 @@
 <%- include('partials/header') %>
 
-<%- include('components/navbar',,{isLoggedIn:isLoggedIn}) %>
+<%- include('components/navbar',{isLoggedIn:isLoggedIn,home:true,wishlist:false,history:false,faq:false}) %>
 
 <div class="flex-grow">
     <div class="m-4 p-2 flex flex-col items-center justify-center text-center">
@@ -9,6 +9,6 @@
     </div>
 </div>
 
-<%- include('components/bottom-bar',{year: new Date().getFullYear(),}) %>
+<%- include('components/bottom-bar') %>
 
 <%- include('partials/footer') %>

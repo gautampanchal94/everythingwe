@@ -21,7 +21,7 @@
 }
 
 .card {
-  @apply mx-auto my-2 px-4 py-2 divide-y-2 rounded prose lg:prose-lg;
+  @apply mx-auto my-2 px-4 py-2 divide-y-2 rounded;
 }
 
 .card-title {
@@ -29,19 +29,19 @@
 }
 
 .card-body {
-  @apply pt-2 pr-2 text-base;
+  @apply pt-2 pr-2 text-base whitespace-pre-line;
 }
 
 .wish-card {
-  @apply block;
+  @apply block p-2 pt-4;
 }
 
 .wish-card-img {
-  @apply mx-auto object-cover w-3/5 h-56 shadow rounded-xl;
+  @apply mx-auto object-cover w-2/3 h-56 shadow;
 }
 
 .wish-card-body {
-  @apply mx-auto p-4 w-3/5;
+  @apply mx-auto p-4 w-2/3;
 }
 
 .wish-card-title {
@@ -50,4 +50,12 @@
 
 .wish-card-content {
   @apply mt-2 text-gray-500;
+}
+
+.nav-active {
+  @apply p-2 text-sky-500 border-b-4 border-sky-500 font-medium;
+}
+
+.nav-inactive {
+  @apply p-2 hover:text-sky-500 transition duration-300;
 }

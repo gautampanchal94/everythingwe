@@ -11,16 +11,16 @@
                 </h1>
                 <form action="/register" method="post">
                     <div class="m-2 text-left">
-                          <label for="name" class="block text-sm sm:text-base">Name</label>
+                          <label for="name" class="block text-sm sm:text-base after:content-['*'] after:ml-0.5 after:text-red-500">Name</label>
                           <input type="text" name="name" id="name" class="input" placeholder="John Doe" required>
                     </div>
                     <div class="m-2 text-left">
-                        <label for="email" class="block text-sm sm:text-base">Email</label>
+                        <label for="email" class="block text-sm sm:text-base after:content-['*'] after:ml-0.5 after:text-red-500">Email</label>
                         <input type="email" name="username" id="email" class="input" placeholder="johndoe@example.com" required>
                         <p class="text-xs md:text-sm text-gray-400">&ast;We will not share your email</p>
                     </div>
                     <div class="m-2 text-left">
-                        <label for="password" class="block text-sm sm:text-base">Password</label>
+                        <label for="password" class="block text-sm sm:text-base after:content-['*'] after:ml-0.5 after:text-red-500">Password</label>
                         <input type="password" name="password" id="password" class="input" placeholder="Password" required>
 
                         <% if(messages) { %>

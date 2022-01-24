@@ -25,6 +25,7 @@ app.set("view engine", "ejs");
 app.set("views", path.join(__dirname, "views"));
 
 app.use(express.static("public"));
+app.use("/images", express.static("images"));
 app.use(express.urlencoded({ extended: true }));
 
 // session
@@ -81,11 +82,11 @@ app.use((req, res) => {
     : res.redirect("/login");
 });
 
-app.use(function (error, req, res, next) {
-  req.isAuthenticated()
-    ? res.render("500", { isLoggedIn: true })
-    : res.redirect("/login");
-});
+// app.use(function (error, req, res, next) {
+//   req.isAuthenticated()
+//     ? res.render("500", { isLoggedIn: true })
+//     : res.redirect("/login");
+// });
 //
 app.listen(process.env.PORT, () => {
   console.log("App Started!!");

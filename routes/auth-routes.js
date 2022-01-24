@@ -12,7 +12,7 @@ const router = express.Router();
 
 router.get("/login", (req, res) => {
   if (req.isAuthenticated()) {
-    res.redirect("history");
+    res.redirect("/");
   } else {
     res.render("login", {
       messages: req.flash("error"),

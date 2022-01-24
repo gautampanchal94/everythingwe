@@ -1,9 +1,9 @@
 <%- include('partials/header') %>
 
-<%- include('components/navbar'),{isLoggedIn:isLoggedIn} %>
+<%- include('components/navbar',{isLoggedIn:isLoggedIn,home:false,wishlist:false,history:false,faq:true}) %>
 
 <div class="flex-grow"></div>
 
-<%- include('components/bottom-bar',{year: new Date().getFullYear(),}) %>
+<%- include('components/bottom-bar') %>
 
 <%- include('partials/footer') %>

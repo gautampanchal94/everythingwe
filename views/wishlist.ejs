@@ -1,15 +1,15 @@
 <%- include('partials/header') %>
 
-<%- include('components/navbar',{isLoggedIn:isLoggedIn}) %>
+<%- include('components/navbar',{isLoggedIn:isLoggedIn,home:false,wishlist:true,history:false,faq:false}) %>
 
-<div class="flex-grow">
+<div class="flex-grow" x-data="{ modify: false }">
 
     <div class="container mt-6">
         <h1 class="page-title">Our Wishlist</h1>
     
-        <div class="container mx-auto mt-8 w-11/12 lg:w-1/2 ">
-            <div class="block">
-                <img class="mx-auto object-cover w-3/5 h-56 shadow rounded-xl"
+        <div class="container mx-auto mt-8 w-11/12 lg:w-1/2 text-center">
+            <!-- <div class="block">
+                <img class="mx-auto object-cover w-3/5 h-56 shadow"
                     src="https://www.hyperui.dev/photos/university-1.jpeg" alt="" />
     
                 <div class="mx-auto p-4 w-3/5">
@@ -21,29 +21,58 @@
                         labore natus atque, ducimus sed.
                     </p>
                 </div>
-            </div>
-    
-    
-            <% wishes.forEach(function(wish){ %>
-                <div class=".wish-card">
-                    <img class="wish-card-img"
-                        src="<%= wish.image %>" alt="" />
-        
-                    <div class="wish-card-body">
-                        <h5 class="wish-card-title">
-                            <%= wish.title %>
-                        </h5>
-                        <p class="wish-card-content">
-                            <%= wish.content %>
-                        </p>
-                    </div>
+            </div> -->
+
+
+            <% if(!wishes||wishes.length===0){ %>
+                <a href="/wish" class="mx-auto">
+                    <button class="p-3 bg-sky-500 text-white hover:bg-sky-300">Add Wish</button>
+                </a>
+            <% } else { %>
+
+                <!-- Add wish -->
+                <template x-if="modify">
+                    <a href="/wish" class="mx-auto">
+                        <button class="p-3 bg-sky-500 text-white hover:bg-sky-300">New Wish</button>
+                    </a>
+                </template>
+
+                <div class="divide-y divide-slate-300">
+                    <% wishes.forEach(function(wish){ %>
+                        <div class="wish-card text-left">
+                            <img class="wish-card-img"
+                                src="<%= wish.image %>" alt="Uploaded Image URL" />
+                            <div class="wish-card-body">
+                                <h5 class="wish-card-title">
+                                    <%= wish.title %>
+                                </h5>
+                                <p class="wish-card-content">
+                                    <%= wish.content %>
+                                </p>
+                                <template x-if="modify">
+                                    <div class="mt-2 flex items-center space-x-6 text-base font-mono text-medium">
+                                        <a href="/wish/<%= wish._id %>/edit" class="text-sky-500 no-underline">Edit</a>
+                                        <a href="/wish/<%= wish._id %>/delete" class="text-red-500 no-underline">Delete</a>
+                                    </div>
+                                </template>
+                            </div>
+                        </div>
+                    <% }) %>
                 </div>
-            <% }) %>
+            <% } %>
         </div>
     </div>
 
+    <!-- modify button -->
+    <button
+    @click="modify=!modify"
+     class="m-5 p-3  origin-bottom-right fixed bottom-14 right-0 z-20 bg-sky-500 rounded-full">
+        <!-- box icons edit-->
+        <svg class="w-8 h-8 fill-white" xmlns="http://www.w3.org/2000/svg" fill="currentColor" viewBox="0 0 24 24""><path d="m18.988 2.012 3 3L19.701 7.3l-3-3zM8 16h3l7.287-7.287-3-3L8 13z"></path><path d="M19 19H8.158c-.026 0-.053.01-.079.01-.033 0-.066-.009-.1-.01H5V5h6.847l2-2H5c-1.103 0-2 .896-2 2v14c0 1.104.897 2 2 2h14a2 2 0 0 0 2-2v-8.668l-2 2V19z"></path></svg>
+    </button>
+
 </div>
 
-<%- include('components/bottom-bar',{year: new Date().getFullYear(),}) %>
+<%- include('components/bottom-bar') %>
 
 <%- include('partials/footer') %>
