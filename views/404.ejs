@@ -1,0 +1,14 @@
+<%- include('partials/header') %>
+
+<%- include('components/navbar'),{isLoggedIn:isLoggedIn} %>
+
+<div class="flex-grow">
+    <div class="m-4 p-2 flex flex-col items-center justify-center text-center">
+        <h1 class="my-2 block text-7xl text-red-600 font-semibold">404 Error!</h1>
+        <p class="my-2 block text-2xl text-sky-500">The page you are looking for doesn't exist or other error occurred.</p>
+    </div>
+</div>
+
+<%- include('components/bottom-bar',{year: new Date().getFullYear(),}) %>
+
+<%- include('partials/footer') %>
