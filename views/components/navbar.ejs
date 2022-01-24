@@ -21,9 +21,40 @@
                 </div>
                 <!-- secondary navbar -->
                 <% if(isLoggedIn){ %>
-                    <div class="hidden md:flex items-center">
-                        <a href="/account" class="py-2 px-2"><i class='bx bxs-user-circle bx-md'></i></a>
+                    <div class="hidden relative md:flex items-center" x-data="{loggedInMenu : false}">
+                        <button 
+                        @click="loggedInMenu = !loggedInMenu" 
+                        @keydown.escape="isLoggedMenu=false"
+                        class="px-2 py-2 flex items-center">
+                            <!-- <i class='bx bxs-user-circle bx-md'></i> -->
+                            <!-- bx user-circle -->
+                            <svg class="fill-black w-10 h-10" fill="currentColor" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 2C6.579 2 2 6.579 2 12s4.579 10 10 10 10-4.579 10-10S17.421 2 12 2zm0 5c1.727 0 3 1.272 3 3s-1.273 3-3 3c-1.726 0-3-1.272-3-3s1.274-3 3-3zm-5.106 9.772c.897-1.32 2.393-2.2 4.106-2.2h2c1.714 0 3.209.88 4.106 2.2C15.828 18.14 14.015 19 12 19s-3.828-.86-5.106-2.228z"></path></svg>
+                        </button>
+
+                        <!-- loggedIn Menu -->
+                        <ul x-show="loggedInMenu"
+                        @click.away="loggedInMenu = false"
+                        x-transition:enter="transition ease-out duration-100 transform"
+                        x-transition:enter-start="opacity-0 scale-95"
+                        x-transition:enter-end="opacity-100 scale-100"
+                        x-transition:leave="transition ease-in duration-75 transform"
+                        x-transition:leave-start="opacity-100 scale-100"
+                        x-transition:leave-end="opacity-0 scale-95" class="loggedInMenu absolute mt-2 py-2 w-40 z-20 font-normal bg-white shadow overflo-hidden rounded top-12 right-2 divide-y divide-gray-100">
+                            <li class="hover:bg-gray-200">
+                                <a href="/account" class="text-gray-700 px-4 py-2 text-base flex items-center">
+                                    <i class='bx bx-user bx-sm pr-3' ></i>
+                                    Account
+                                </a>
+                            </li>
+                            <li class="hover:bg-gray-200">
+                                <a href="/logout" class="text-gray-700 px-4 py-2 text-base flex items-center">
+                                    <i class='bx bx-log-out bx-sm pr-3'></i>
+                                    Logout
+                                </a>
+                            </li>
+                        </ul>
                     </div>
+
                <% } else{ %>
                     <div class="hidden md:flex items-center space-x-3">
                         <a href="/login" class="py-2 px-2 hover:bg-sky-500 hover:text-white transition duration-300">Log In</a>
@@ -35,9 +66,17 @@
                 <div class="md:hidden flex items-center">
                     <button 
                     @click="mobileMenuOpen = !mobileMenuOpen"
+                    @click.away="mobileMenuOpen = false"
                     class="outline-none mobile-menu-button"
                     >
-                    <i class='bx bx-menu bx-md'></i>
+                    <i :class="mobileMenuOpen?'bx-x':'bx-menu'"
+                    x-transition:enter="transition duration-200 ease-out"
+                    x-transition:enter-start="opacity-0 scale-95"
+                    x-transition:enter-end="opacity-100 scale-100"
+                    x-transition:leave="transition duration-100 ease-in"
+                    x-transition:leave-start="opacity-100 scale-100"
+                    x-transition:leave-end="opacity-0 scale-95"
+                     class='bx bx-md'></i>
                     </button>
                 </div>
             </div>
@@ -65,6 +104,14 @@
             <li class="">
                 <a href="/faq" class="block text-lg py-2 text-center">FAQ</a>
             </li>
+            <% if(isLoggedIn){ %>
+                <li class="">
+                    <a href="/account" class="block text-lg py-2 text-center">Account</a>
+                </li>
+                <li class="">
+                    <a href="/logout" class="block text-lg py-2 text-center">Logout</a>
+                </li>
+            <% } %>
         </ul>
     </div>
        
