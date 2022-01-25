@@ -18,6 +18,7 @@ const defaultRoutes = require("./routes/default-routes");
 const authRoutes = require("./routes/auth-routes");
 const postRoutes = require("./routes/post-routes");
 const wishRoutes = require("./routes/wish-routes");
+const faqRoutes = require("./routes/faq-routes");
 
 const app = express();
 
@@ -59,18 +60,11 @@ app.use(defaultRoutes);
 app.use(authRoutes);
 app.use(postRoutes);
 app.use(wishRoutes);
+app.use(faqRoutes);
 
 app.get("/about", (req, res) => {
   if (req.isAuthenticated()) {
     res.render("about", { isLoggedIn: true });
-  } else {
-    res.redirect("/login");
-  }
-});
-
-app.get("/faq", (req, res) => {
-  if (req.isAuthenticated()) {
-    res.render("faq", { isLoggedIn: true });
   } else {
     res.redirect("/login");
   }

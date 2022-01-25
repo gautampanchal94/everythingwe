@@ -897,6 +897,9 @@ Ensure the default browser behavior of the `hidden` attribute.
 .h-8{
   height: 2rem;
 }
+.h-96{
+  height: 24rem;
+}
 .h-56{
   height: 14rem;
 }
@@ -936,6 +939,9 @@ Ensure the default browser behavior of the `hidden` attribute.
 .w-40{
   width: 10rem;
 }
+.max-w-lg{
+  max-width: 32rem;
+}
 .flex-grow{
   flex-grow: 1;
 }
@@ -974,6 +980,16 @@ Ensure the default browser behavior of the `hidden` attribute.
   --tw-space-x-reverse: 0;
   margin-right: calc(1.5rem * var(--tw-space-x-reverse));
   margin-left: calc(1.5rem * calc(1 - var(--tw-space-x-reverse)));
+}
+.space-y-5 > :not([hidden]) ~ :not([hidden]){
+  --tw-space-y-reverse: 0;
+  margin-top: calc(1.25rem * calc(1 - var(--tw-space-y-reverse)));
+  margin-bottom: calc(1.25rem * var(--tw-space-y-reverse));
+}
+.space-y-3 > :not([hidden]) ~ :not([hidden]){
+  --tw-space-y-reverse: 0;
+  margin-top: calc(0.75rem * calc(1 - var(--tw-space-y-reverse)));
+  margin-bottom: calc(0.75rem * var(--tw-space-y-reverse));
 }
 .space-x-7 > :not([hidden]) ~ :not([hidden]){
   --tw-space-x-reverse: 0;
@@ -1040,9 +1056,19 @@ Ensure the default browser behavior of the `hidden` attribute.
   --tw-bg-opacity: 1;
   background-color: rgb(255 255 255 / var(--tw-bg-opacity));
 }
+.bg-\[\#D53715\]{
+  --tw-bg-opacity: 1;
+  background-color: rgb(213 55 21 / var(--tw-bg-opacity));
+}
 .bg-sky-500{
   --tw-bg-opacity: 1;
   background-color: rgb(14 165 233 / var(--tw-bg-opacity));
+}
+.bg-cover{
+  background-size: cover;
+}
+.bg-no-repeat{
+  background-repeat: no-repeat;
 }
 .fill-sky-500{
   fill: #0ea5e9;
@@ -1072,6 +1098,14 @@ Ensure the default browser behavior of the `hidden` attribute.
 .p-4{
   padding: 1rem;
 }
+.py-3{
+  padding-top: 0.75rem;
+  padding-bottom: 0.75rem;
+}
+.px-2{
+  padding-left: 0.5rem;
+  padding-right: 0.5rem;
+}
 .py-2{
   padding-top: 0.5rem;
   padding-bottom: 0.5rem;
@@ -1083,10 +1117,6 @@ Ensure the default browser behavior of the `hidden` attribute.
 .py-4{
   padding-top: 1rem;
   padding-bottom: 1rem;
-}
-.px-2{
-  padding-left: 0.5rem;
-  padding-right: 0.5rem;
 }
 .pr-3{
   padding-right: 0.75rem;
@@ -1100,6 +1130,9 @@ Ensure the default browser behavior of the `hidden` attribute.
 .font-mono{
   font-family: IBM Plex Mono, monospace;
 }
+.font-serif{
+  font-family: IBM Plex Serif, serif;
+}
 .text-7xl{
   font-size: 4.5rem;
   line-height: 1;
@@ -1112,25 +1145,29 @@ Ensure the default browser behavior of the `hidden` attribute.
   font-size: 1.875rem;
   line-height: 2.25rem;
 }
+.text-xl{
+  font-size: 1.25rem;
+  line-height: 1.75rem;
+}
 .text-base{
   font-size: 1rem;
   line-height: 1.5rem;
+}
+.text-5xl{
+  font-size: 3rem;
+  line-height: 1;
+}
+.text-lg{
+  font-size: 1.125rem;
+  line-height: 1.75rem;
 }
 .text-sm{
   font-size: 0.875rem;
   line-height: 1.25rem;
 }
-.text-xl{
-  font-size: 1.25rem;
-  line-height: 1.75rem;
-}
 .text-xs{
   font-size: 0.75rem;
   line-height: 1rem;
-}
-.text-lg{
-  font-size: 1.125rem;
-  line-height: 1.75rem;
 }
 .font-semibold{
   font-weight: 600;
@@ -1159,9 +1196,17 @@ Ensure the default browser behavior of the `hidden` attribute.
   --tw-text-opacity: 1;
   color: rgb(255 255 255 / var(--tw-text-opacity));
 }
+.text-slate-900{
+  --tw-text-opacity: 1;
+  color: rgb(15 23 42 / var(--tw-text-opacity));
+}
 .text-red-500{
   --tw-text-opacity: 1;
   color: rgb(239 68 68 / var(--tw-text-opacity));
+}
+.text-slate-600{
+  --tw-text-opacity: 1;
+  color: rgb(71 85 105 / var(--tw-text-opacity));
 }
 .text-gray-400{
   --tw-text-opacity: 1;
@@ -1449,6 +1494,26 @@ Ensure the default browser behavior of the `hidden` attribute.
   color: rgb(14 165 233 / var(--tw-text-opacity));
 }
 
+.marker\:text-2xl *::marker{
+  font-size: 1.5rem;
+  line-height: 2rem;
+}
+
+.marker\:content-\[\'\+\'\] *::marker{
+  --tw-content: '+';
+  content: var(--tw-content);
+}
+
+.marker\:text-2xl::marker{
+  font-size: 1.5rem;
+  line-height: 2rem;
+}
+
+.marker\:content-\[\'\+\'\]::marker{
+  --tw-content: '+';
+  content: var(--tw-content);
+}
+
 .file\:mr-4::-webkit-file-upload-button{
   margin-right: 1rem;
 }
@@ -1558,6 +1623,18 @@ Ensure the default browser behavior of the `hidden` attribute.
   color: rgb(148 163 184 / var(--tw-text-opacity));
 }
 
+.marker\:before\:mx-2 *::before,::marker{
+  content: var(--tw-content);
+  margin-left: 0.5rem;
+  margin-right: 0.5rem;
+}
+
+.marker\:before\:mx-2::marker::before{
+  content: var(--tw-content);
+  margin-left: 0.5rem;
+  margin-right: 0.5rem;
+}
+
 .after\:ml-0\.5::after{
   content: var(--tw-content);
   margin-left: 0.125rem;
@@ -1577,6 +1654,38 @@ Ensure the default browser behavior of the `hidden` attribute.
 .after\:content-\[\'\*\'\]::after{
   --tw-content: '*';
   content: var(--tw-content);
+}
+
+.marker\:open\:text-xl[open] *::marker{
+  font-size: 1.25rem;
+  line-height: 1.75rem;
+}
+
+.marker\:open\:font-medium[open] *::marker{
+  font-weight: 500;
+}
+
+.marker\:open\:content-\[\'\2014\'\][open] *::marker{
+  --tw-content: '—';
+  content: var(--tw-content);
+}
+
+.marker\:open\:text-xl[open]::marker{
+  font-size: 1.25rem;
+  line-height: 1.75rem;
+}
+
+.marker\:open\:font-medium[open]::marker{
+  font-weight: 500;
+}
+
+.marker\:open\:content-\[\'\2014\'\][open]::marker{
+  --tw-content: '—';
+  content: var(--tw-content);
+}
+
+.hover\:bg-\[\#D53715\]\/80:hover{
+  background-color: rgb(213 55 21 / 0.8);
 }
 
 .hover\:bg-sky-300:hover{
@@ -1649,6 +1758,10 @@ Ensure the default browser behavior of the `hidden` attribute.
     width: 40%;
   }
 
+  .md\:bg-\[center_top_-12rem\]{
+    background-position: center top -12rem;
+  }
+
   .md\:text-3xl{
     font-size: 1.875rem;
     line-height: 2.25rem;
@@ -1672,11 +1785,11 @@ Ensure the default browser behavior of the `hidden` attribute.
 
 @media (min-width: 1024px){
 
-  .lg\:w-3\/4{
-    width: 75%;
-  }
-
   .lg\:w-1\/2{
     width: 50%;
+  }
+
+  .lg\:w-3\/4{
+    width: 75%;
   }
 }

@@ -22,8 +22,8 @@ router.get("/compose", (req, res) => {
     : res.redirect("/login");
 });
 
-router.post("/compose", function (req, res) {
-  const post = new Post({
+router.post("/compose", async function (req, res) {
+  const post = await new Post({
     title: req.body.postTitle,
     content: req.body.postContent,
     user_id: req.user._id,
@@ -59,7 +59,7 @@ router.post("/compose/:id/edit", async function (req, res) {
     );
     res.redirect("/history");
   } else {
-    req.redirect("/login");
+    res.redirect("/login");
   }
 });
 
