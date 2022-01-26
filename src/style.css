@@ -58,9 +58,9 @@
 }
 
 .nav-active {
-  @apply p-2 text-sky-500 border-b-4 border-sky-500 font-medium;
+  @apply p-2 text-cordovan border-b-4 border-cordovan font-bold;
 }
 
 .nav-inactive {
-  @apply p-2 hover:text-sky-500 transition duration-300;
+  @apply p-2 hover:text-cordovan transition duration-300 font-medium;
 }

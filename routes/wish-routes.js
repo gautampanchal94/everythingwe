@@ -1,5 +1,7 @@
+const fs = require("fs");
 const express = require("express");
 const multer = require("multer");
+const cloudinary = require("cloudinary").v2;
 
 const Wish = require("../models/wish");
 
@@ -37,20 +39,38 @@ router.get("/wish", (req, res) => {
 
 router.post("/wish", upload.single("wishImage"), async function (req, res) {
   if (req.isAuthenticated()) {
-    const uploadedImage = req.file;
+    const imageFile = req.file;
 
-    const wish = await new Wish({
-      title: req.body.wishTitle,
-      content: req.body.wishContent,
-      image: uploadedImage.path,
-      user_id: req.user._id,
-    });
+    cloudinary.uploader
+      .upload(imageFile.path, {
+        folder: "upload",
+        resource_type: "image",
+      })
+      .then(async (result) => {
+        console.log(result);
+        const wish = await new Wish({
+          title: req.body.wishTitle,
+          content: req.body.wishContent,
+          image: {
+            public_id: result.public_id,
+            url: result.url,
+          },
+          user_id: req.user._id,
+        });
 
-    wish.save(function (err) {
-      if (!err) {
-        res.redirect("/wishlist");
-      }
-    });
+        fs.unlink(imageFile.path, (err) => {
+          if (err) throw err;
+        });
+
+        wish.save(function (err) {
+          if (!err) {
+            res.redirect("/wishlist");
+          }
+        });
+      })
+      .catch((error) => {
+        console.log(error, JSON.stringify(error));
+      });
   } else {
     res.redirect("/login");
   }
@@ -71,18 +91,25 @@ router.post(
   upload.single("wishImage"),
   async function (req, res) {
     if (req.isAuthenticated()) {
-      const uploadedImage = req.file;
+      const imageFile = req.file;
 
-      await Wish.findOneAndUpdate(
-        { _id: req.params.id },
-        {
-          $set: {
-            title: req.body.wishTitle,
-            content: req.body.wishContent,
-            image: uploadedImage.path,
-          },
-        }
-      );
+      cloudinary.uploader
+        .upload(imageFile.path, { folder: "upload", resource_type: "image" })
+        .then(async (result) => {
+          await Wish.findOneAndUpdate(
+            { _id: req.params.id },
+            {
+              $set: {
+                title: req.body.wishTitle,
+                content: req.body.wishContent,
+                image: result.url,
+              },
+            }
+          );
+          fs.unlink(imageFile.path, (err) => {
+            if (err) throw err;
+          });
+        });
       res.redirect("/wishlist");
     } else {
       req.redirect("/login");
@@ -92,6 +119,11 @@ router.post(
 
 router.get("/wish/:id/delete", async function (req, res) {
   if (req.isAuthenticated()) {
+    const wish = await Wish.findOne({ _id: req.params.id });
+
+    cloudinary.api.delete_resources(wish.image.public_id, (error) => {
+      if (error) throw error;
+    });
     await Wish.findOneAndDelete({ _id: req.params.id });
 
     res.redirect("/wishlist");

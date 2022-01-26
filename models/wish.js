@@ -4,7 +4,10 @@ const mongoose = require("mongoose");
 const wishSchema = new mongoose.Schema({
   title: String,
   content: String,
-  image: String,
+  image: {
+    public_id: String,
+    url: String,
+  },
   user_id: String,
 });
 

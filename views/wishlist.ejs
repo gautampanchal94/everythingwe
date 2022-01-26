@@ -41,7 +41,7 @@
                     <% wishes.forEach(function(wish){ %>
                         <div class="wish-card text-left">
                             <img class="wish-card-img"
-                                src="<%= wish.image %>" alt="Uploaded Image URL" />
+                                src=<%= wish.image.url %> alt="Uploaded Image URL" />
                             <div class="wish-card-body">
                                 <h5 class="wish-card-title">
                                     <%= wish.title %>
