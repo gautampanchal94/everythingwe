@@ -47,7 +47,6 @@ router.post("/wish", upload.single("wishImage"), async function (req, res) {
         resource_type: "image",
       })
       .then(async (result) => {
-        console.log(result);
         const wish = await new Wish({
           title: req.body.wishTitle,
           content: req.body.wishContent,

@@ -10,19 +10,15 @@
 }
 
 .input {
-  @apply w-full my-2 py-2 px-2 border-2 border-solid border-blue-200 caret-blue-400 focus:outline-none focus:border-blue-500 focus:ring-blue-500;
+  @apply w-full my-2 py-2 px-2 border-2 border-solid border-pale-pink caret-cordovan focus:outline-none focus:border-cordovan focus:ring-cordovan;
 }
 
 .btn-primary {
-  @apply min-w-fit md:w-3/6 border-2 border-solid border-pink-500 py-2 px-4  text-sm md:text-lg text-pink-500 hover:bg-pink-500 hover:text-white transition duration-150 ease-out;
-}
-
-.btn-secondary {
-  @apply min-w-fit mx-auto px-8 sm:w-full sm:px-2 mt-3 border-2 border-solid border-gray-300 py-2 text-gray-700 hover:bg-gray-300 hover:text-white transition duration-150 ease-out;
+  @apply min-w-fit md:w-3/6 border-2 border-solid border-cordovan py-2 px-4  text-sm md:text-lg text-cordovan hover:bg-cordovan hover:text-white transition duration-150 ease-out;
 }
 
 .page-title {
-  @apply text-4xl text-sky-500 text-center font-serif italic;
+  @apply text-4xl text-cordovan text-center font-serif italic;
 }
 
 .card {

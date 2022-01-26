@@ -1,10 +1,12 @@
 //jshint esversion:6
 const mongoose = require("mongoose");
 
-let database;
+let db = "mongodb://localhost:27017/myDB";
 
 async function connectToDatabase() {
-  var db = process.env.DATABASE;
+  if (process.env.DATABASE) {
+    db = process.env.DATABASE;
+  }
   mongoose
     .connect(db, { useNewUrlParser: true, useUnifiedTopology: true })
     .catch((error) => console.log(error));
