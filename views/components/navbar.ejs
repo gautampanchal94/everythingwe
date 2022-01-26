@@ -39,11 +39,11 @@
                         x-transition:enter-end="opacity-100 scale-100"
                         x-transition:leave="transition ease-in duration-75 transform"
                         x-transition:leave-start="opacity-100 scale-100"
-                        x-transition:leave-end="opacity-0 scale-95" class="loggedInMenu absolute mt-2 py-2 w-40 z-20 font-normal bg-white shadow overflo-hidden rounded top-12 right-2 divide-y divide-gray-100">
+                        x-transition:leave-end="opacity-0 scale-95" class="loggedInMenu absolute mt-2 py-2 w-48 z-20 font-normal bg-white shadow overflo-hidden rounded top-12 right-2 divide-y divide-gray-100">
                             <li class="hover:bg-gray-200">
-                                <a href="/account" class="text-gray-700 px-4 py-2 text-base flex items-center">
+                                <a href="/update-home" class="text-gray-700 px-4 py-2 text-base flex items-center">
                                     <i class='bx bx-user bx-sm pr-3' ></i>
-                                    Account
+                                    Change Home
                                 </a>
                             </li>
                             <li class="hover:bg-gray-200">
@@ -58,7 +58,7 @@
                <% } else{ %>
                     <div class="hidden md:flex items-center space-x-3">
                         <a href="/login" class="py-2 px-2 hover:bg-sky-500 hover:text-white transition duration-300">Log In</a>
-                        <a href="/register" class="py-2 px-2 text-white bg-sky-500 hover:bg-sky-400 transition duration-300">Sign Up</a>
+                        <a href="/register" class="py-2 px-2 text-white bg-pink-500 hover:bg-sky-400 transition duration-300">Sign Up</a>
                     </div>
                 <% } %>
 
@@ -90,7 +90,7 @@
         x-transition:leave="transition ease-in duration-75 transform"
         x-transition:leave-start="opacity-100 scale-100"
         x-transition:leave-end="opacity-0 scale-95"
-        class="mobile-menu block border-t-2 border-sky-500/25">
+        class="mobile-menu block relative z-30 border-t-2 border-sky-500/25">
         <ul class="">
             <li class="mobile-active font-medium">
                 <a href="/" class="block text-lg py-2 text-center">Home</a>
@@ -106,10 +106,17 @@
             </li>
             <% if(isLoggedIn){ %>
                 <li class="">
-                    <a href="/account" class="block text-lg py-2 text-center">Account</a>
+                    <a href="/update-home" class="block text-lg py-2 text-center">Update Home</a>
                 </li>
                 <li class="">
                     <a href="/logout" class="block text-lg py-2 text-center">Logout</a>
+                </li>
+            <% } else { %>
+                <li class="">
+                    <a href="/login" class="block text-lg py-2 text-center">Sign In</a>
+                </li>
+                <li class="">
+                    <a href="/register" class="block text-lg py-2 text-center">Sign Up</a>
                 </li>
             <% } %>
         </ul>

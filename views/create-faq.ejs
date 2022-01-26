@@ -2,7 +2,7 @@
 
 <div class="container bg-slate-100">
     <div class="min-h-screen flex flex-col items-center justify-center text-center">
-        <div x-data class="bg-white w-2/5 p-8 shadow">
+        <div x-data class="bg-white w-5/6 md:w-2/5 p-5 md:p-8 shadow">
             <!-- post --> 
             <div class="mb-3">
                 <h6 class="text-3xl text-sky-500 text-bold">
@@ -19,11 +19,11 @@
                 <template x-if="<%=!isForEdit%>">
                     <form action="/create-faq" method="POST" class="">
                         <div class="m-2 text-left">
-                            <label for="faqTitle" class="block after:content-['*'] after:ml-0.5 after:text-red-500">Title</label>
+                            <label for="faqTitle" class="block after:content-['*'] after:ml-0.5 after:text-red-500">Question</label>
                             <input type="text" name="faqTitle" id="faqTitle" class="input" placeholder="Question" required>
                         </div>
                         <div class="m-2 text-left">
-                            <label for="faqContent" class="block after:content-['*'] after:ml-0.5 after:text-red-500">Story</label>
+                            <label for="faqContent" class="block after:content-['*'] after:ml-0.5 after:text-red-500">Answer</label>
                             <input type="text" name="faqContent" id="faqContent" class="input" placeholder="Answer" required>
                         </div>
                         <button type="submit" class="btn-primary">Add</button>

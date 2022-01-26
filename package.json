@@ -5,8 +5,7 @@
   "main": "app.js",
   "scripts": {
     "build:css": "postcss src/style.css -o public/style.css",
-    "start": "node app.js",
-    "watch": "nodemon --exec \"npm run build:css && npm run start\" -e ejs,css,js,mjs,json"
+    "start": "nodemon app.js -e ejs,css,js,mjs,json --exec \"npm run build:css && node\""
   },
   "keywords": [],
   "author": "",
@@ -30,7 +29,8 @@
     "password-validator": "^5.2.1",
     "postcss": "^8.4.5",
     "postcss-cli": "^9.1.0",
-    "tailwindcss": "^3.0.15"
+    "tailwindcss": "^3.0.15",
+    "typy": "^3.3.0"
   },
   "devDependencies": {
     "@tailwindcss/typography": "^0.5.0"

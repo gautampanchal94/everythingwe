@@ -385,6 +385,9 @@ Ensure the default browser behavior of the `hidden` attribute.
   display: none;
 }
 
+:root {
+  }
+
 *, ::before, ::after{
   --tw-translate-x: 0;
   --tw-translate-y: 0;
@@ -836,6 +839,9 @@ Ensure the default browser behavior of the `hidden` attribute.
 .z-10{
   z-index: 10;
 }
+.z-30{
+  z-index: 30;
+}
 .m-4{
   margin: 1rem;
 }
@@ -912,8 +918,8 @@ Ensure the default browser behavior of the `hidden` attribute.
 .min-h-screen{
   min-height: 100vh;
 }
-.w-2\/5{
-  width: 40%;
+.w-5\/6{
+  width: 83.333333%;
 }
 .w-12{
   width: 3rem;
@@ -924,9 +930,6 @@ Ensure the default browser behavior of the `hidden` attribute.
 .w-8{
   width: 2rem;
 }
-.w-5\/6{
-  width: 83.333333%;
-}
 .w-full{
   width: 100%;
 }
@@ -936,8 +939,8 @@ Ensure the default browser behavior of the `hidden` attribute.
 .w-10{
   width: 2.5rem;
 }
-.w-40{
-  width: 10rem;
+.w-48{
+  width: 12rem;
 }
 .max-w-lg{
   max-width: 32rem;
@@ -1064,6 +1067,10 @@ Ensure the default browser behavior of the `hidden` attribute.
   --tw-bg-opacity: 1;
   background-color: rgb(14 165 233 / var(--tw-bg-opacity));
 }
+.bg-pink-500{
+  --tw-bg-opacity: 1;
+  background-color: rgb(236 72 153 / var(--tw-bg-opacity));
+}
 .bg-cover{
   background-size: cover;
 }
@@ -1089,11 +1096,14 @@ Ensure the default browser behavior of the `hidden` attribute.
 .p-2{
   padding: 0.5rem;
 }
-.p-8{
-  padding: 2rem;
+.p-5{
+  padding: 1.25rem;
 }
 .p-3{
   padding: 0.75rem;
+}
+.p-8{
+  padding: 2rem;
 }
 .p-4{
   padding: 1rem;
@@ -1304,7 +1314,7 @@ Ensure the default browser behavior of the `hidden` attribute.
   border-width: 2px;
   border-style: solid;
   --tw-border-opacity: 1;
-  border-color: rgb(14 165 233 / var(--tw-border-opacity));
+  border-color: rgb(236 72 153 / var(--tw-border-opacity));
   padding-top: 0.5rem;
   padding-bottom: 0.5rem;
   padding-left: 1rem;
@@ -1312,7 +1322,7 @@ Ensure the default browser behavior of the `hidden` attribute.
   font-size: 0.875rem;
   line-height: 1.25rem;
   --tw-text-opacity: 1;
-  color: rgb(14 165 233 / var(--tw-text-opacity));
+  color: rgb(236 72 153 / var(--tw-text-opacity));
   transition-property: color, background-color, border-color, fill, stroke, opacity, box-shadow, transform, filter, -webkit-text-decoration-color, -webkit-backdrop-filter;
   transition-property: color, background-color, border-color, text-decoration-color, fill, stroke, opacity, box-shadow, transform, filter, backdrop-filter;
   transition-property: color, background-color, border-color, text-decoration-color, fill, stroke, opacity, box-shadow, transform, filter, backdrop-filter, -webkit-text-decoration-color, -webkit-backdrop-filter;
@@ -1323,7 +1333,7 @@ Ensure the default browser behavior of the `hidden` attribute.
 
 .btn-primary:hover{
   --tw-bg-opacity: 1;
-  background-color: rgb(14 165 233 / var(--tw-bg-opacity));
+  background-color: rgb(236 72 153 / var(--tw-bg-opacity));
   --tw-text-opacity: 1;
   color: rgb(255 255 255 / var(--tw-text-opacity));
 }
@@ -1760,6 +1770,10 @@ Ensure the default browser behavior of the `hidden` attribute.
 
   .md\:bg-\[center_top_-12rem\]{
     background-position: center top -12rem;
+  }
+
+  .md\:p-8{
+    padding: 2rem;
   }
 
   .md\:text-3xl{
