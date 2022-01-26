@@ -9,15 +9,6 @@
             You and me had a whole lot of history
         </h1>
         <div class="container mx-auto mt-8 w-11/12 lg:w-3/4 text-center">
-            <!-- <div class="card">
-                <h2 class="card-title">Online best-friend's best-friend</h2>
-                <p class="card-body">
-                    It was 2014 when i was introduced to you by my Facebook best-friend. Of course, you were his best-friend and i would've known it just as you do. It was 2015 when i came to know after a few months of his suicide that he is no more. I tried to contact you because you were the only person i knew and that you still wouldn't reply exactly what happened and i had to text his sister and get to know what happened actually.
-                </p>
-            </div> -->
-
-            
-            
             <% if(!posts||posts.length===0){ %>
                 <a href="/compose" class="mx-auto">
                     <button class="p-3 bg-cordovan text-white hover:bg-cordovan/80">Create Post</button>
@@ -53,7 +44,7 @@
 
     <button
     @click="modify=!modify"
-     class="m-5 p-3  origin-bottom-right fixed bottom-14 right-0 z-20 bg-pale-pinkrounded-full">
+     class="m-5 p-3  origin-bottom-right fixed bottom-14 right-0 z-20 bg-pale-pink rounded-full">
         <!-- box icons edit-->
         <svg class="w-8 h-8 fill-cordovan" xmlns="http://www.w3.org/2000/svg" fill="currentColor" viewBox="0 0 24 24""><path d="m18.988 2.012 3 3L19.701 7.3l-3-3zM8 16h3l7.287-7.287-3-3L8 13z"></path><path d="M19 19H8.158c-.026 0-.053.01-.079.01-.033 0-.066-.009-.1-.01H5V5h6.847l2-2H5c-1.103 0-2 .896-2 2v14c0 1.104.897 2 2 2h14a2 2 0 0 0 2-2v-8.668l-2 2V19z"></path></svg>
     </button>

@@ -5,6 +5,7 @@ const express = require("express");
 const ejs = require("ejs");
 const mongoose = require("mongoose");
 const session = require("express-session");
+const MemoryStore = require("memorystore")(session);
 const flash = require("connect-flash");
 const passport = require("passport");
 const LocalStrategy = require("passport-local");
@@ -19,6 +20,7 @@ const authRoutes = require("./routes/auth-routes");
 const postRoutes = require("./routes/post-routes");
 const wishRoutes = require("./routes/wish-routes");
 const faqRoutes = require("./routes/faq-routes");
+const { constants } = require("os");
 
 const app = express();
 
@@ -29,9 +31,17 @@ app.use(express.static("public"));
 app.use("/images", express.static("images"));
 app.use(express.urlencoded({ extended: true }));
 
+app.set("trust proxy", 1);
 // session
 app.use(
   session({
+    cookie: {
+      secure: true,
+      maxAge: 86400000,
+    },
+    store: new MemoryStore({
+      checkPeriod: 8640000,
+    }),
     secret: process.env.SECRET,
     resave: false,
     saveUninitialized: false,

@@ -1,87 +1,143 @@
 <!-- navbar -->
-<header class="container sticky top-0 bg-slate-100 border-b-2 border-solid border-sky-200 shadow">
+<header class="sticky top-0">
+  <div
+    class="container mx-auto w-full bg-slate-100 border-b-2 border-solid border-sky-200 shadow"
+  >
     <nav class="" x-data="{mobileMenuOpen : false}">
-        <div class="mx-auto px-4">
-            <div class="flex justify-between">
-                <div class="flex space-x-7">
-                    <!-- logo -->
-                    <div class="">
-                        <a href="/" class="flex items-center py-4 px-2">
-                              <svg class="fill-green-500 h-8 w-8 mr-2" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="currentColor"><path d="M22,3.41l-.12-1.26-1.2.4a13.84,13.84,0,0,1-6.41.64,11.87,11.87,0,0,0-6.68.9A7.23,7.23,0,0,0,3.3,9.5a9,9,0,0,0,.39,4.58,16.6,16.6,0,0,1,1.18-2.2A9.85,9.85,0,0,1,8.94,8.45a11.16,11.16,0,0,1,5.06-1v0A12.08,12.08,0,0,0,9.34,9.2a9.48,9.48,0,0,0-1.86,1.53,11.38,11.38,0,0,0-1.39,1.91,16.39,16.39,0,0,0-1.57,4.54A26.42,26.42,0,0,0,4,22H6a30.69,30.69,0,0,1,.59-4.32,9.25,9.25,0,0,0,4.52,1.11,11,11,0,0,0,4.28-.87C23,14.67,22,3.86,22,3.41Z"></path></svg>
-                            <span class="font-medium text-lg text-cordovan">Pudhina Chai</span>
-                        </a>
-                    </div>
-                    <!-- primary navbar -->
-                    <div class="hidden md:flex items-center space-x-1">
-                        <a href="/" :class="<%=home%>?'nav-active':'nav-inactive'">Home</a>
-                        <a href="/wishlist" :class="<%=wishlist%>?'nav-active':'nav-inactive'">Wishlist</a>
-                        <a href="/history" :class="<%=history%>?'nav-active':'nav-inactive'">History</a>
-                        <a href="/faq" :class="<%=faq%>?'nav-active':'nav-inactive'">FAQ</a>
-                    </div>
-                </div>
-                <!-- secondary navbar -->
-                <% if(isLoggedIn){ %>
-                    <div class="hidden relative md:flex items-center" x-data="{loggedInMenu : false}">
-                        <button 
-                        @click="loggedInMenu = !loggedInMenu" 
-                        @keydown.escape="isLoggedMenu=false"
-                        class="px-2 py-2 flex items-center">
-                            <!-- <i class='bx bxs-user-circle bx-md'></i> -->
-                            <!-- bx user-circle -->
-                            <svg class="fill-cordovan w-10 h-10" fill="currentColor" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 2C6.579 2 2 6.579 2 12s4.579 10 10 10 10-4.579 10-10S17.421 2 12 2zm0 5c1.727 0 3 1.272 3 3s-1.273 3-3 3c-1.726 0-3-1.272-3-3s1.274-3 3-3zm-5.106 9.772c.897-1.32 2.393-2.2 4.106-2.2h2c1.714 0 3.209.88 4.106 2.2C15.828 18.14 14.015 19 12 19s-3.828-.86-5.106-2.228z"></path></svg>
-                        </button>
-
-                        <!-- loggedIn Menu -->
-                        <ul x-show="loggedInMenu"
-                        @click.away="loggedInMenu = false"
-                        x-transition:enter="transition ease-out duration-100 transform"
-                        x-transition:enter-start="opacity-0 scale-95"
-                        x-transition:enter-end="opacity-100 scale-100"
-                        x-transition:leave="transition ease-in duration-75 transform"
-                        x-transition:leave-start="opacity-100 scale-100"
-                        x-transition:leave-end="opacity-0 scale-95" class="loggedInMenu absolute mt-2 py-2 w-48 z-20 font-normal bg-white shadow overflo-hidden rounded top-12 right-2 divide-y divide-gray-100">
-                            <li class="hover:bg-gray-200">
-                                <a href="/update-home" class="text-gray-700 px-4 py-2 text-base flex items-center">
-                                    <i class='bx bx-user bx-sm pr-3' ></i>
-                                    Change Home
-                                </a>
-                            </li>
-                            <li class="hover:bg-gray-200">
-                                <a href="/logout" class="text-gray-700 px-4 py-2 text-base flex items-center">
-                                    <i class='bx bx-log-out bx-sm pr-3'></i>
-                                    Logout
-                                </a>
-                            </li>
-                        </ul>
-                    </div>
-
-               <% } else{ %>
-                    <div class="hidden md:flex items-center space-x-3">
-                        <a href="/login" class="py-2 px-2 text-cordovan bg-pale-pink hover:bg-cordovan hover:text-pale-pink transition duration-300 font-semibold">Log In</a>
-                    </div>
-                <% } %>
-
-                <!-- mobile menubar button -->
-                <div class="md:hidden flex items-center">
-                    <button 
-                    @click="mobileMenuOpen = !mobileMenuOpen"
-                    @click.away="mobileMenuOpen = false"
-                    class="outline-none mobile-menu-button"
-                    >
-                    <i :class="mobileMenuOpen?'bx-x':'bx-menu'"
-                    x-transition:enter="transition duration-200 ease-out"
-                    x-transition:enter-start="opacity-0 scale-95"
-                    x-transition:enter-end="opacity-100 scale-100"
-                    x-transition:leave="transition duration-100 ease-in"
-                    x-transition:leave-start="opacity-100 scale-100"
-                    x-transition:leave-end="opacity-0 scale-95"
-                     class='bx bx-md'></i>
-                    </button>
-                </div>
+      <div class="mx-auto px-4">
+        <div class="flex justify-between">
+          <div class="flex space-x-7">
+            <!-- logo -->
+            <div class="">
+              <a href="/" class="flex items-center py-4 px-2">
+                <svg
+                  class="fill-green-500 h-8 w-8 mr-2"
+                  xmlns="http://www.w3.org/2000/svg"
+                  width="24"
+                  height="24"
+                  viewBox="0 0 24 24"
+                  fill="currentColor"
+                >
+                  <path
+                    d="M22,3.41l-.12-1.26-1.2.4a13.84,13.84,0,0,1-6.41.64,11.87,11.87,0,0,0-6.68.9A7.23,7.23,0,0,0,3.3,9.5a9,9,0,0,0,.39,4.58,16.6,16.6,0,0,1,1.18-2.2A9.85,9.85,0,0,1,8.94,8.45a11.16,11.16,0,0,1,5.06-1v0A12.08,12.08,0,0,0,9.34,9.2a9.48,9.48,0,0,0-1.86,1.53,11.38,11.38,0,0,0-1.39,1.91,16.39,16.39,0,0,0-1.57,4.54A26.42,26.42,0,0,0,4,22H6a30.69,30.69,0,0,1,.59-4.32,9.25,9.25,0,0,0,4.52,1.11,11,11,0,0,0,4.28-.87C23,14.67,22,3.86,22,3.41Z"
+                  ></path>
+                </svg>
+                <span class="font-medium text-lg text-cordovan"
+                  >Pudhina Chai</span
+                >
+              </a>
             </div>
+            <!-- primary navbar -->
+            <div class="hidden md:flex items-center space-x-1">
+              <a href="/" :class="<%=home%>?'nav-active':'nav-inactive'"
+                >Home</a
+              >
+              <a
+                href="/wishlist"
+                :class="<%=wishlist%>?'nav-active':'nav-inactive'"
+                >Wishlist</a
+              >
+              <a
+                href="/history"
+                :class="<%=history%>?'nav-active':'nav-inactive'"
+                >History</a
+              >
+              <a href="/faq" :class="<%=faq%>?'nav-active':'nav-inactive'"
+                >FAQ</a
+              >
+            </div>
+          </div>
+          <!-- secondary navbar -->
+          <% if(isLoggedIn){ %>
+          <div
+            class="hidden relative md:flex items-center"
+            x-data="{loggedInMenu : false}"
+          >
+            <button
+              @click="loggedInMenu = !loggedInMenu"
+              @keydown.escape="isLoggedMenu=false"
+              class="px-2 py-2 flex items-center"
+            >
+              <!-- <i class='bx bxs-user-circle bx-md'></i> -->
+              <!-- bx user-circle -->
+              <svg
+                class="fill-cordovan w-10 h-10"
+                fill="currentColor"
+                xmlns="http://www.w3.org/2000/svg"
+                viewBox="0 0 24 24"
+              >
+                <path
+                  d="M12 2C6.579 2 2 6.579 2 12s4.579 10 10 10 10-4.579 10-10S17.421 2 12 2zm0 5c1.727 0 3 1.272 3 3s-1.273 3-3 3c-1.726 0-3-1.272-3-3s1.274-3 3-3zm-5.106 9.772c.897-1.32 2.393-2.2 4.106-2.2h2c1.714 0 3.209.88 4.106 2.2C15.828 18.14 14.015 19 12 19s-3.828-.86-5.106-2.228z"
+                ></path>
+              </svg>
+            </button>
+
+            <!-- loggedIn Menu -->
+            <ul
+              x-show="loggedInMenu"
+              @click.away="loggedInMenu = false"
+              x-transition:enter="transition ease-out duration-100 transform"
+              x-transition:enter-start="opacity-0 scale-95"
+              x-transition:enter-end="opacity-100 scale-100"
+              x-transition:leave="transition ease-in duration-75 transform"
+              x-transition:leave-start="opacity-100 scale-100"
+              x-transition:leave-end="opacity-0 scale-95"
+              class="loggedInMenu absolute mt-2 py-2 w-48 z-20 font-normal bg-white shadow overflo-hidden rounded top-12 right-2 divide-y divide-gray-100"
+            >
+              <li class="hover:bg-gray-200">
+                <a
+                  href="/update-home"
+                  class="text-gray-700 px-4 py-2 text-base flex items-center"
+                >
+                  <i class="bx bx-user bx-sm pr-3"></i>
+                  Change Home
+                </a>
+              </li>
+              <li class="hover:bg-gray-200">
+                <a
+                  href="/logout"
+                  class="text-gray-700 px-4 py-2 text-base flex items-center"
+                >
+                  <i class="bx bx-log-out bx-sm pr-3"></i>
+                  Logout
+                </a>
+              </li>
+            </ul>
+          </div>
+
+          <% } else{ %>
+          <div class="hidden md:flex items-center space-x-3">
+            <a
+              href="/login"
+              class="py-2 px-2 text-cordovan bg-pale-pink hover:bg-cordovan hover:text-pale-pink transition duration-300 font-semibold"
+              >Log In</a
+            >
+          </div>
+          <% } %>
+
+          <!-- mobile menubar button -->
+          <div class="md:hidden flex items-center">
+            <button
+              @click="mobileMenuOpen = !mobileMenuOpen"
+              @click.away="mobileMenuOpen = false"
+              class="outline-none mobile-menu-button"
+            >
+              <i
+                :class="mobileMenuOpen?'bx-x':'bx-menu'"
+                x-transition:enter="transition duration-200 ease-out"
+                x-transition:enter-start="opacity-0 scale-95"
+                x-transition:enter-end="opacity-100 scale-100"
+                x-transition:leave="transition duration-100 ease-in"
+                x-transition:leave-start="opacity-100 scale-100"
+                x-transition:leave-end="opacity-0 scale-95"
+                class="bx bx-md"
+              ></i>
+            </button>
+          </div>
         </div>
-        <!-- mobile menu -->
-        <div 
+      </div>
+      <!-- mobile menu -->
+      <div
         x-show="mobileMenuOpen"
         x-transition:enter="transition ease-out duration-100 transform"
         x-transition:enter-start="opacity-0 scale-95"
@@ -89,34 +145,41 @@
         x-transition:leave="transition ease-in duration-75 transform"
         x-transition:leave-start="opacity-100 scale-100"
         x-transition:leave-end="opacity-0 scale-95"
-        class="mobile-menu block relative z-30 border-t-2 border-cordovan/80">
+        class="mobile-menu block relative z-30 border-t-2 border-cordovan/80"
+      >
         <ul class="">
-            <li class="mobile-active">
-                <a href="/" class="block text-lg py-2 text-center">Home</a>
-            </li>
-            <li class="">
-                <a href="/wishlist" class="block text-lg py-2 text-center">Wishlist</a>
-            </li>
-            <li class="">
-                <a href="/history" class="block text-lg py-2 text-center">History</a>
-            </li>
-            <li class="">
-                <a href="/faq" class="block text-lg py-2 text-center">FAQ</a>
-            </li>
-            <% if(isLoggedIn){ %>
-                <li class="">
-                    <a href="/update-home" class="block text-lg py-2 text-center">Update Home</a>
-                </li>
-                <li class="">
-                    <a href="/logout" class="block text-lg py-2 text-center">Logout</a>
-                </li>
-            <% } else { %>
-                <li class="">
-                    <a href="/login" class="block text-lg py-2 text-center">Sign In</a>
-                </li>
-            <% } %>
+          <li class="mobile-active">
+            <a href="/" class="block text-lg py-2 text-center">Home</a>
+          </li>
+          <li class="">
+            <a href="/wishlist" class="block text-lg py-2 text-center"
+              >Wishlist</a
+            >
+          </li>
+          <li class="">
+            <a href="/history" class="block text-lg py-2 text-center"
+              >History</a
+            >
+          </li>
+          <li class="">
+            <a href="/faq" class="block text-lg py-2 text-center">FAQ</a>
+          </li>
+          <% if(isLoggedIn){ %>
+          <li class="">
+            <a href="/update-home" class="block text-lg py-2 text-center"
+              >Update Home</a
+            >
+          </li>
+          <li class="">
+            <a href="/logout" class="block text-lg py-2 text-center">Logout</a>
+          </li>
+          <% } else { %>
+          <li class="">
+            <a href="/login" class="block text-lg py-2 text-center">Sign In</a>
+          </li>
+          <% } %>
         </ul>
-    </div>
-       
+      </div>
     </nav>
+  </div>
 </header>

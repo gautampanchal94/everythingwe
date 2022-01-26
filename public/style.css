@@ -1,7 +1,7 @@
 @import url("https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:ital,wght@0,400;0,500;1,400;1,500&family=IBM+Plex+Sans:ital,wght@0,300;0,400;0,500;0,700;1,300;1,400;1,500;1,700&family=IBM+Plex+Serif:ital,wght@0,300;0,400;0,600;1,300;1,400;1,600&display=swap");
 
 /*
-! tailwindcss v3.0.15 | MIT License | https://tailwindcss.com
+! tailwindcss v3.0.17 | MIT License | https://tailwindcss.com
 */
 
 /*
@@ -34,8 +34,7 @@ html {
   line-height: 1.5; /* 1 */
   -webkit-text-size-adjust: 100%; /* 2 */
   -moz-tab-size: 4; /* 3 */
-  -o-tab-size: 4;
-     tab-size: 4; /* 3 */
+  tab-size: 4; /* 3 */
   font-family: IBM Plex Sans, sans-serif; /* 4 */
 }
 
@@ -55,20 +54,9 @@ body {
 3. Ensure horizontal rules are visible by default.
 */
 
-hr {
-  height: 0; /* 1 */
-  color: inherit; /* 2 */
-  border-top-width: 1px; /* 3 */
-}
-
 /*
 Add the correct text decoration in Chrome, Edge, and Safari.
 */
-
-abbr:where([title]) {
-  -webkit-text-decoration: underline dotted;
-          text-decoration: underline dotted;
-}
 
 /*
 Remove the default font size and weight for headings.
@@ -76,8 +64,6 @@ Remove the default font size and weight for headings.
 
 h1,
 h2,
-h3,
-h4,
 h5,
 h6 {
   font-size: inherit;
@@ -97,63 +83,24 @@ a {
 Add the correct font weight in Edge and Safari.
 */
 
-b,
-strong {
-  font-weight: bolder;
-}
-
 /*
 1. Use the user's configured `mono` font family by default.
 2. Correct the odd `em` font sizing in all browsers.
 */
 
-code,
-kbd,
-samp,
-pre {
-  font-family: IBM Plex Mono, monospace; /* 1 */
-  font-size: 1em; /* 2 */
-}
-
 /*
 Add the correct font size in all browsers.
 */
 
-small {
-  font-size: 80%;
-}
-
 /*
 Prevent `sub` and `sup` elements from affecting the line height in all browsers.
 */
-
-sub,
-sup {
-  font-size: 75%;
-  line-height: 0;
-  position: relative;
-  vertical-align: baseline;
-}
-
-sub {
-  bottom: -0.25em;
-}
-
-sup {
-  top: -0.5em;
-}
 
 /*
 1. Remove text indentation from table contents in Chrome and Safari. (https://bugs.chromium.org/p/chromium/issues/detail?id=999088, https://bugs.webkit.org/show_bug.cgi?id=201297)
 2. Correct table border color inheritance in all Chrome and Safari. (https://bugs.chromium.org/p/chromium/issues/detail?id=935729, https://bugs.webkit.org/show_bug.cgi?id=195016)
 3. Remove gaps between table borders by default.
 */
-
-table {
-  text-indent: 0; /* 1 */
-  border-color: inherit; /* 2 */
-  border-collapse: collapse; /* 3 */
-}
 
 /*
 1. Change the font styles in all browsers.
@@ -163,8 +110,6 @@ table {
 
 button,
 input,
-optgroup,
-select,
 textarea {
   font-family: inherit; /* 1 */
   font-size: 100%; /* 1 */
@@ -178,8 +123,7 @@ textarea {
 Remove the inheritance of text transform in Edge and Firefox.
 */
 
-button,
-select {
+button {
   text-transform: none;
 }
 
@@ -190,7 +134,6 @@ select {
 
 button,
 [type='button'],
-[type='reset'],
 [type='submit'] {
   -webkit-appearance: button; /* 1 */
   background-color: transparent; /* 2 */
@@ -201,25 +144,13 @@ button,
 Use the modern Firefox focus style for all focusable elements.
 */
 
-:-moz-focusring {
-  outline: auto;
-}
-
 /*
 Remove the additional `:invalid` styles in Firefox. (https://github.com/mozilla/gecko-dev/blob/2f9eacd9d3d995c937b4251a5557d95d494c9be1/layout/style/res/forms.css#L728-L737)
 */
 
-:-moz-ui-invalid {
-  box-shadow: none;
-}
-
 /*
 Add the correct vertical alignment in Chrome and Firefox.
 */
-
-progress {
-  vertical-align: baseline;
-}
 
 /*
 Correct the cursor style of increment and decrement buttons in Safari.
@@ -234,11 +165,6 @@ Correct the cursor style of increment and decrement buttons in Safari.
 1. Correct the odd appearance in Chrome and Safari.
 2. Correct the outline style in Safari.
 */
-
-[type='search'] {
-  -webkit-appearance: textfield; /* 1 */
-  outline-offset: -2px; /* 2 */
-}
 
 /*
 Remove the inner padding in Chrome and Safari on macOS.
@@ -270,32 +196,16 @@ summary {
 Removes the default spacing and border for appropriate elements.
 */
 
-blockquote,
-dl,
-dd,
+
 h1,
 h2,
-h3,
-h4,
 h5,
 h6,
-hr,
-figure,
-p,
-pre {
+p {
   margin: 0;
 }
 
-fieldset {
-  margin: 0;
-  padding: 0;
-}
 
-legend {
-  padding: 0;
-}
-
-ol,
 ul,
 menu {
   list-style: none;
@@ -316,16 +226,6 @@ textarea {
 2. Set the default placeholder color to the user's configured gray 400 color.
 */
 
-input::-moz-placeholder, textarea::-moz-placeholder {
-  opacity: 1; /* 1 */
-  color: #9ca3af; /* 2 */
-}
-
-input:-ms-input-placeholder, textarea:-ms-input-placeholder {
-  opacity: 1; /* 1 */
-  color: #9ca3af; /* 2 */
-}
-
 input::placeholder,
 textarea::placeholder {
   opacity: 1; /* 1 */
@@ -336,18 +236,13 @@ textarea::placeholder {
 Set the default cursor for buttons.
 */
 
-button,
-[role="button"] {
+button {
   cursor: pointer;
 }
 
 /*
 Make sure disabled buttons don't get the pointer cursor.
 */
-
-:disabled {
-  cursor: default;
-}
 
 /*
 1. Make replaced elements `display: block` by default. (https://github.com/mozdevs/cssremedy/issues/14)
@@ -356,13 +251,7 @@ Make sure disabled buttons don't get the pointer cursor.
 */
 
 img,
-svg,
-video,
-canvas,
-audio,
-iframe,
-embed,
-object {
+svg {
   display: block; /* 1 */
   vertical-align: middle; /* 2 */
 }
@@ -371,8 +260,7 @@ object {
 Constrain images and videos to the parent width and preserve their intrinsic aspect ratio. (https://github.com/mozdevs/cssremedy/issues/14)
 */
 
-img,
-video {
+img {
   max-width: 100%;
   height: auto;
 }
@@ -815,7 +703,6 @@ Ensure the default browser behavior of the `hidden` attribute.
   position: relative;
 }
 .sticky{
-  position: -webkit-sticky;
   position: sticky;
 }
 .bottom-14{
@@ -912,9 +799,6 @@ Ensure the default browser behavior of the `hidden` attribute.
 .h-10{
   height: 2.5rem;
 }
-.h-screen{
-  height: 100vh;
-}
 .min-h-screen{
   min-height: 100vh;
 }
@@ -944,6 +828,9 @@ Ensure the default browser behavior of the `hidden` attribute.
 }
 .max-w-lg{
   max-width: 32rem;
+}
+.flex-none{
+  flex: none;
 }
 .flex-grow{
   flex-grow: 1;
@@ -1026,9 +913,6 @@ Ensure the default browser behavior of the `hidden` attribute.
   --tw-divide-opacity: 1;
   border-color: rgb(243 244 246 / var(--tw-divide-opacity));
 }
-.overflow-clip{
-  overflow: clip;
-}
 .whitespace-pre-line{
   white-space: pre-line;
 }
@@ -1062,10 +946,6 @@ Ensure the default browser behavior of the `hidden` attribute.
   --tw-bg-opacity: 1;
   background-color: rgb(255 255 255 / var(--tw-bg-opacity));
 }
-.bg-\[\#D53715\]{
-  --tw-bg-opacity: 1;
-  background-color: rgb(213 55 21 / var(--tw-bg-opacity));
-}
 .bg-pale-pink{
   --tw-bg-opacity: 1;
   background-color: rgb(236 212 212 / var(--tw-bg-opacity));
@@ -1087,8 +967,7 @@ Ensure the default browser behavior of the `hidden` attribute.
   fill: #22c55e;
 }
 .object-cover{
-  -o-object-fit: cover;
-     object-fit: cover;
+  object-fit: cover;
 }
 .p-2{
   padding: 0.5rem;
@@ -1236,8 +1115,7 @@ Ensure the default browser behavior of the `hidden` attribute.
   color: rgb(55 65 81 / var(--tw-text-opacity));
 }
 .no-underline{
-  -webkit-text-decoration-line: none;
-          text-decoration-line: none;
+  text-decoration-line: none;
 }
 .opacity-0{
   opacity: 0;
@@ -1255,9 +1133,7 @@ Ensure the default browser behavior of the `hidden` attribute.
   outline-offset: 2px;
 }
 .transition{
-  transition-property: color, background-color, border-color, fill, stroke, opacity, box-shadow, transform, filter, -webkit-text-decoration-color, -webkit-backdrop-filter;
   transition-property: color, background-color, border-color, text-decoration-color, fill, stroke, opacity, box-shadow, transform, filter, backdrop-filter;
-  transition-property: color, background-color, border-color, text-decoration-color, fill, stroke, opacity, box-shadow, transform, filter, backdrop-filter, -webkit-text-decoration-color, -webkit-backdrop-filter;
   transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
   transition-duration: 150ms;
 }
@@ -1305,8 +1181,6 @@ Ensure the default browser behavior of the `hidden` attribute.
 }
 
 .btn-primary{
-  min-width: -webkit-fit-content;
-  min-width: -moz-fit-content;
   min-width: fit-content;
   border-width: 2px;
   border-style: solid;
@@ -1320,9 +1194,7 @@ Ensure the default browser behavior of the `hidden` attribute.
   line-height: 1.25rem;
   --tw-text-opacity: 1;
   color: rgb(139 76 86 / var(--tw-text-opacity));
-  transition-property: color, background-color, border-color, fill, stroke, opacity, box-shadow, transform, filter, -webkit-text-decoration-color, -webkit-backdrop-filter;
   transition-property: color, background-color, border-color, text-decoration-color, fill, stroke, opacity, box-shadow, transform, filter, backdrop-filter;
-  transition-property: color, background-color, border-color, text-decoration-color, fill, stroke, opacity, box-shadow, transform, filter, backdrop-filter, -webkit-text-decoration-color, -webkit-backdrop-filter;
   transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
   transition-duration: 150ms;
   transition-timing-function: cubic-bezier(0, 0, 0.2, 1);
@@ -1405,8 +1277,7 @@ Ensure the default browser behavior of the `hidden` attribute.
   margin-right: auto;
   height: 14rem;
   width: 66.666667%;
-  -o-object-fit: cover;
-     object-fit: cover;
+  object-fit: cover;
   --tw-shadow: 0 1px 3px 0 rgb(0 0 0 / 0.1), 0 1px 2px -1px rgb(0 0 0 / 0.1);
   --tw-shadow-colored: 0 1px 3px 0 var(--tw-shadow-color), 0 1px 2px -1px var(--tw-shadow-color);
   box-shadow: var(--tw-ring-offset-shadow, 0 0 #0000), var(--tw-ring-shadow, 0 0 #0000), var(--tw-shadow);
@@ -1446,9 +1317,7 @@ Ensure the default browser behavior of the `hidden` attribute.
 .nav-inactive{
   padding: 0.5rem;
   font-weight: 500;
-  transition-property: color, background-color, border-color, fill, stroke, opacity, box-shadow, transform, filter, -webkit-text-decoration-color, -webkit-backdrop-filter;
   transition-property: color, background-color, border-color, text-decoration-color, fill, stroke, opacity, box-shadow, transform, filter, backdrop-filter;
-  transition-property: color, background-color, border-color, text-decoration-color, fill, stroke, opacity, box-shadow, transform, filter, backdrop-filter, -webkit-text-decoration-color, -webkit-backdrop-filter;
   transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
   transition-duration: 300ms;
 }
@@ -1463,48 +1332,21 @@ Ensure the default browser behavior of the `hidden` attribute.
   line-height: 2rem;
 }
 
-.marker\:content-\[\'\+\'\] *::marker{
-  --tw-content: '+';
-  content: var(--tw-content);
-}
-
 .marker\:text-2xl::marker{
   font-size: 1.5rem;
   line-height: 2rem;
-}
-
-.marker\:content-\[\'\+\'\]::marker{
-  --tw-content: '+';
-  content: var(--tw-content);
-}
-
-.file\:mr-4::-webkit-file-upload-button{
-  margin-right: 1rem;
 }
 
 .file\:mr-4::file-selector-button{
   margin-right: 1rem;
 }
 
-.file\:rounded-full::-webkit-file-upload-button{
-  border-radius: 9999px;
-}
-
 .file\:rounded-full::file-selector-button{
   border-radius: 9999px;
 }
 
-.file\:border-0::-webkit-file-upload-button{
-  border-width: 0px;
-}
-
 .file\:border-0::file-selector-button{
   border-width: 0px;
-}
-
-.file\:bg-pale-pink::-webkit-file-upload-button{
-  --tw-bg-opacity: 1;
-  background-color: rgb(236 212 212 / var(--tw-bg-opacity));
 }
 
 .file\:bg-pale-pink::file-selector-button{
@@ -1512,19 +1354,9 @@ Ensure the default browser behavior of the `hidden` attribute.
   background-color: rgb(236 212 212 / var(--tw-bg-opacity));
 }
 
-.file\:py-2::-webkit-file-upload-button{
-  padding-top: 0.5rem;
-  padding-bottom: 0.5rem;
-}
-
 .file\:py-2::file-selector-button{
   padding-top: 0.5rem;
   padding-bottom: 0.5rem;
-}
-
-.file\:px-4::-webkit-file-upload-button{
-  padding-left: 1rem;
-  padding-right: 1rem;
 }
 
 .file\:px-4::file-selector-button{
@@ -1532,27 +1364,13 @@ Ensure the default browser behavior of the `hidden` attribute.
   padding-right: 1rem;
 }
 
-.file\:text-sm::-webkit-file-upload-button{
-  font-size: 0.875rem;
-  line-height: 1.25rem;
-}
-
 .file\:text-sm::file-selector-button{
   font-size: 0.875rem;
   line-height: 1.25rem;
 }
 
-.file\:font-semibold::-webkit-file-upload-button{
-  font-weight: 600;
-}
-
 .file\:font-semibold::file-selector-button{
   font-weight: 600;
-}
-
-.file\:text-cordovan::-webkit-file-upload-button{
-  --tw-text-opacity: 1;
-  color: rgb(139 76 86 / var(--tw-text-opacity));
 }
 
 .file\:text-cordovan::file-selector-button{
@@ -1560,26 +1378,8 @@ Ensure the default browser behavior of the `hidden` attribute.
   color: rgb(139 76 86 / var(--tw-text-opacity));
 }
 
-.placeholder\:italic::-moz-placeholder{
-  font-style: italic;
-}
-
-.placeholder\:italic:-ms-input-placeholder{
-  font-style: italic;
-}
-
 .placeholder\:italic::placeholder{
   font-style: italic;
-}
-
-.placeholder\:text-slate-400::-moz-placeholder{
-  --tw-text-opacity: 1;
-  color: rgb(148 163 184 / var(--tw-text-opacity));
-}
-
-.placeholder\:text-slate-400:-ms-input-placeholder{
-  --tw-text-opacity: 1;
-  color: rgb(148 163 184 / var(--tw-text-opacity));
 }
 
 .placeholder\:text-slate-400::placeholder{
@@ -1599,11 +1399,6 @@ Ensure the default browser behavior of the `hidden` attribute.
   margin-right: 0.5rem;
 }
 
-.after\:ml-0\.5::after{
-  content: var(--tw-content);
-  margin-left: 0.125rem;
-}
-
 .after\:ml-0::after{
   content: var(--tw-content);
   margin-left: 0px;
@@ -1615,11 +1410,6 @@ Ensure the default browser behavior of the `hidden` attribute.
   color: rgb(239 68 68 / var(--tw-text-opacity));
 }
 
-.after\:content-\[\'\*\'\]::after{
-  --tw-content: '*';
-  content: var(--tw-content);
-}
-
 .marker\:open\:text-xl[open] *::marker{
   font-size: 1.25rem;
   line-height: 1.75rem;
@@ -1629,11 +1419,6 @@ Ensure the default browser behavior of the `hidden` attribute.
   font-weight: 500;
 }
 
-.marker\:open\:content-\[\'\2014\'\][open] *::marker{
-  --tw-content: '—';
-  content: var(--tw-content);
-}
-
 .marker\:open\:text-xl[open]::marker{
   font-size: 1.25rem;
   line-height: 1.75rem;
@@ -1641,15 +1426,6 @@ Ensure the default browser behavior of the `hidden` attribute.
 
 .marker\:open\:font-medium[open]::marker{
   font-weight: 500;
-}
-
-.marker\:open\:content-\[\'\2014\'\][open]::marker{
-  --tw-content: '—';
-  content: var(--tw-content);
-}
-
-.hover\:bg-\[\#D53715\]\/80:hover{
-  background-color: rgb(213 55 21 / 0.8);
 }
 
 .hover\:bg-cordovan\/80:hover{
@@ -1669,10 +1445,6 @@ Ensure the default browser behavior of the `hidden` attribute.
 .hover\:text-pale-pink:hover{
   --tw-text-opacity: 1;
   color: rgb(236 212 212 / var(--tw-text-opacity));
-}
-
-.hover\:file\:bg-cordovan\/40::-webkit-file-upload-button:hover{
-  background-color: rgb(139 76 86 / 0.4);
 }
 
 .hover\:file\:bg-cordovan\/40::file-selector-button:hover{
@@ -1712,10 +1484,6 @@ Ensure the default browser behavior of the `hidden` attribute.
 
   .md\:w-2\/5{
     width: 40%;
-  }
-
-  .md\:bg-\[center_top_-12rem\]{
-    background-position: center top -12rem;
   }
 
   .md\:p-8{

@@ -1,44 +1,66 @@
-<%- include('partials/header') %>
+<%- include('partials/header') %> <%-
+include('components/navbar',{isLoggedIn:isLoggedIn,home:true,wishlist:false,history:false,faq:false})
+%>
 
-<%- include('components/navbar',{isLoggedIn:isLoggedIn,home:true,wishlist:false,history:false,faq:false}) %>
-
-<div x-data="{}" class="flex-grow">
-
-    <% if(isLoggedIn){ %>   
-        <% homeContent.forEach(function(doc){%>
-        <div class="container">
-            <div class="bg-cover bg-no-repeat md:bg-[center_top_-12rem] h-96 flex flex-col justify-center items-center space-y-5" style="background-image: url(https://images.unsplash.com/photo-1561336526-2914f13ceb36?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1170&q=80)">
-
-               
-                <h1 class="text-5xl font-serif font-bold text-white"><%=doc.homeContent.pageTitle.title%></h1>
-                <p class="font-serif text-white italic  text-2xl"><%=doc.homeContent.pageTitle.content%></p>
-            </div>
-            <div class="h-56 flex flex-col justify-center items-center space-y-3">
-                <h2 class="text-3xl font-medium text-cordovan"><%=doc.homeContent.firstSubHeading.title%></h2>
-                <p class="font-serif italic text-lg "><%=doc.homeContent.firstSubHeading.content%></p>
-            </div>
-            <div class="h-56 flex flex-col justify-center items-center space-y-3">
-                <h2 class="text-3xl font-medium text-cordovan"><%=doc.homeContent.lastSubHeading.title%></h2>
-                <p class="font-serif italic text-lg "><%=doc.homeContent.lastSubHeading.content%></p>
-            </div>
-        </div>
-        <%})%>
-        <% } else{ %>
-        <div class="container">
-            <div class="bg-cover bg-no-repeat md:bg-[center_top_-12rem] h-96 flex flex-col justify-center items-center space-y-5" style="background-image: url(https://images.unsplash.com/photo-1561336526-2914f13ceb36?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1170&q=80)">
-                <h1 class="text-5xl font-serif font-bold text-white">Phudina Chai</h1>
-                <p class="font-serif text-white italic text-2xl">It's you, you idiot.</p>
-            </div>
-            <div class="h-56 flex flex-col justify-center items-center space-y-3">
-                <h2 class="text-3xl font-medium text-cordovan">Project mission</h2>
-                <p class="font-serif italic text-lg ">To only let you know what you already know</p>
-            </div>
-            <div class="h-56 flex flex-col justify-center items-center space-y-3">
-                <h2 class="text-3xl font-medium text-cordovan">Gaali deni hai?</h2>
-                <p class="font-serif italic text-lg ">Toh call kr chutiye</p>
-            </div>
-        </div>
+<div x-data="{}" class="flex-none">
+  <div class="container mx-auto w-full">
+    <% if(isLoggedIn){ %> <% homeContent.forEach(function(doc){%>
+    <div class="container">
+      <div
+        class="bg-cover bg-no-repeat md:bg-[center_top_-18rem] h-96 flex flex-col justify-center items-center space-y-5"
+        style="
+          background-image: url(https://images.unsplash.com/photo-1561336526-2914f13ceb36?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1170&q=80);
+        "
+      >
+        <h1 class="text-5xl font-serif font-bold text-white">
+          <%=doc.homeContent.pageTitle.title%>
+        </h1>
+        <p class="font-serif text-white italic text-2xl">
+          <%=doc.homeContent.pageTitle.content%>
+        </p>
+      </div>
+      <div class="h-56 flex flex-col justify-center items-center space-y-3">
+        <h2 class="text-3xl font-medium text-cordovan">
+          <%=doc.homeContent.firstSubHeading.title%>
+        </h2>
+        <p class="font-serif italic text-lg">
+          <%=doc.homeContent.firstSubHeading.content%>
+        </p>
+      </div>
+      <div class="h-56 flex flex-col justify-center items-center space-y-3">
+        <h2 class="text-3xl font-medium text-cordovan">
+          <%=doc.homeContent.lastSubHeading.title%>
+        </h2>
+        <p class="font-serif italic text-lg">
+          <%=doc.homeContent.lastSubHeading.content%>
+        </p>
+      </div>
+    </div>
+    <%})%> <% } else{ %>
+    <div class="container">
+      <div
+        class="bg-cover bg-no-repeat md:bg-[center_top_-12rem] h-96 flex flex-col justify-center items-center space-y-5"
+        style="
+          background-image: url(https://images.unsplash.com/photo-1561336526-2914f13ceb36?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1170&q=80);
+        "
+      >
+        <h1 class="text-5xl font-serif font-bold text-white">Phudina Chai</h1>
+        <p class="font-serif text-white italic text-2xl">
+          It's you, you idiot.
+        </p>
+      </div>
+      <div class="h-56 flex flex-col justify-center items-center space-y-3">
+        <h2 class="text-3xl font-medium text-cordovan">Project mission</h2>
+        <p class="font-serif italic text-lg">
+          To only let you know what you already know
+        </p>
+      </div>
+      <div class="h-56 flex flex-col justify-center items-center space-y-3">
+        <h2 class="text-3xl font-medium text-cordovan">Gaali deni hai?</h2>
+        <p class="font-serif italic text-lg">Toh call kr chutiye</p>
+      </div>
+    </div>
     <% } %>
+  </div>
 </div>
-<%- include('components/bottom-bar') %>
-<%- include('partials/footer') %>
+<%- include('components/bottom-bar') %> <%- include('partials/footer') %>
