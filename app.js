@@ -86,12 +86,12 @@ app.use((req, res) => {
     : res.redirect("/login");
 });
 
-// app.use(function (error, req, res, next) {
-//   req.isAuthenticated()
-//     ? res.render("500", { isLoggedIn: true })
-//     : res.redirect("/login");
-// });
-//
+app.use(function (error, req, res, next) {
+  req.isAuthenticated()
+    ? res.render("500", { isLoggedIn: true })
+    : res.redirect("/login");
+});
+
 app.listen(process.env.PORT, () => {
   console.log("App Started!!");
 });
