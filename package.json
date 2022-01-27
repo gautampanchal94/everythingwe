@@ -9,7 +9,7 @@
   },
   "scripts": {
     "build:css": "postcss src/style.css -o public/style.css",
-    "start": "node app.js"
+    "start": "nodemon app.js -e .ejs,.js,.json --exec \"npm run build:css && node\""
   },
   "keywords": [],
   "author": "",
