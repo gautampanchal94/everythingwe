@@ -1,13 +1,17 @@
-const fs = require("fs");
+const tmp = require("tmp");
 const express = require("express");
 const multer = require("multer");
 const cloudinary = require("cloudinary").v2;
 
 const Wish = require("../models/wish");
 
+const tempDir = tmp.dirSync();
+
+console.log(tempDir.name);
+
 const storageConfig = multer.diskStorage({
   destination: function (req, file, cb) {
-    cb(null, "images");
+    cb(null, tempDir.name);
   },
   filename: function (req, file, cb) {
     const uniquePrefix = Date.now() + "-" + Math.round(Math.random() * 1e9);
@@ -15,7 +19,7 @@ const storageConfig = multer.diskStorage({
   },
 });
 
-const upload = multer({ storage: storageConfig });
+const fileUpload = multer({ storage: storageConfig });
 const router = express.Router();
 
 router.get("/wishlist", (req, res) => {
@@ -37,7 +41,7 @@ router.get("/wish", (req, res) => {
     : res.redirect("/login");
 });
 
-router.post("/wish", upload.single("wishImage"), async function (req, res) {
+router.post("/wish", fileUpload.single("wishImage"), async function (req, res) {
   if (req.isAuthenticated()) {
     const imageFile = req.file;
 
@@ -55,10 +59,6 @@ router.post("/wish", upload.single("wishImage"), async function (req, res) {
             url: result.url,
           },
           user_id: req.user._id,
-        });
-
-        fs.unlink(imageFile.path, (err) => {
-          if (err) throw err;
         });
 
         wish.save(function (err) {
@@ -87,7 +87,7 @@ router.get("/wish/:id/edit", async function (req, res) {
 
 router.post(
   "/wish/:id/edit",
-  upload.single("wishImage"),
+  fileUpload.single("wishImage"),
   async function (req, res) {
     if (req.isAuthenticated()) {
       const imageFile = req.file;
@@ -101,13 +101,13 @@ router.post(
               $set: {
                 title: req.body.wishTitle,
                 content: req.body.wishContent,
-                image: result.url,
+                image: {
+                  public_id: result.public_id,
+                  url: result.url,
+                },
               },
             }
           );
-          fs.unlink(imageFile.path, (err) => {
-            if (err) throw err;
-          });
         });
       res.redirect("/wishlist");
     } else {
@@ -120,7 +120,7 @@ router.get("/wish/:id/delete", async function (req, res) {
   if (req.isAuthenticated()) {
     const wish = await Wish.findOne({ _id: req.params.id });
 
-    cloudinary.api.delete_resources(wish.image.public_id, (error) => {
+    cloudinary.uploader.destroy(wish.image.public_id, (error) => {
       if (error) throw error;
     });
     await Wish.findOneAndDelete({ _id: req.params.id });
