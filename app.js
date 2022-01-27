@@ -3,7 +3,6 @@ require("dotenv").config();
 const path = require("path");
 const express = require("express");
 const ejs = require("ejs");
-const mongoose = require("mongoose");
 const session = require("express-session");
 const mongodbStore = require("connect-mongodb-session");
 const flash = require("connect-flash");
@@ -20,7 +19,6 @@ const authRoutes = require("./routes/auth-routes");
 const postRoutes = require("./routes/post-routes");
 const wishRoutes = require("./routes/wish-routes");
 const faqRoutes = require("./routes/faq-routes");
-const { constants } = require("os");
 
 const MongoDBStore = mongodbStore(session);
 
@@ -96,6 +94,4 @@ app.use(function (error, req, res, next) {
     : res.redirect("/login");
 });
 
-app.listen(process.env.PORT, () => {
-  console.log("App Started!!");
-});
+app.listen(process.env.PORT || 3000);
