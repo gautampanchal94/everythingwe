@@ -8,7 +8,8 @@
   },
   "scripts": {
     "build:css": "postcss src/style.css -o public/style.css",
-    "start": "nodemon app.js -e ejs,css,js,mjs,json --exec \"npm run build:css && node\""
+    "watch":"nodemon app.js -e ejs,css,js,mjs,json --exec \"npm run build:css && node\"",
+    "start": "node app.js"
   },
   "keywords": [],
   "author": "",
