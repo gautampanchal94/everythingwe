@@ -816,9 +816,6 @@ Ensure the default browser behavior of the `hidden` attribute.
 .w-full{
   width: 100%;
 }
-.w-3\/5{
-  width: 60%;
-}
 .w-10{
   width: 2.5rem;
 }
@@ -962,9 +959,6 @@ Ensure the default browser behavior of the `hidden` attribute.
 .fill-green-500{
   fill: #22c55e;
 }
-.object-cover{
-  object-fit: cover;
-}
 .p-2{
   padding: 0.5rem;
 }
@@ -976,9 +970,6 @@ Ensure the default browser behavior of the `hidden` attribute.
 }
 .p-8{
   padding: 2rem;
-}
-.p-4{
-  padding: 1rem;
 }
 .py-3{
   padding-top: 0.75rem;
@@ -1089,14 +1080,6 @@ Ensure the default browser behavior of the `hidden` attribute.
 .text-slate-600{
   --tw-text-opacity: 1;
   color: rgb(71 85 105 / var(--tw-text-opacity));
-}
-.text-gray-900{
-  --tw-text-opacity: 1;
-  color: rgb(17 24 39 / var(--tw-text-opacity));
-}
-.text-gray-500{
-  --tw-text-opacity: 1;
-  color: rgb(107 114 128 / var(--tw-text-opacity));
 }
 .text-gray-700{
   --tw-text-opacity: 1;
