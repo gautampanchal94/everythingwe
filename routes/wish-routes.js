@@ -7,7 +7,7 @@ const Wish = require("../models/wish");
 
 const tempDir = tmp.dirSync();
 
-console.log(tempDir.name);
+// console.log(tempDir.name);
 
 const storageConfig = multer.diskStorage({
   destination: function (req, file, cb) {
