@@ -9,9 +9,13 @@ const User = require("../models/user");
 const router = express.Router();
 
 router.get("/login", (req, res) => {
-  res.render("login", {
-    messages: req.flash("error"),
-  });
+  if (req.isAuthenticated()) {
+    res.redirect("/");
+  } else {
+    res.render("login", {
+      messages: req.flash("error"),
+    });
+  }
 });
 
 router.post(
