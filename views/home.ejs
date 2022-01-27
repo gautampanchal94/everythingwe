@@ -2,7 +2,7 @@
 include('components/navbar',{isLoggedIn:isLoggedIn,home:true,wishlist:false,history:false,faq:false})
 %>
 
-<div x-data="{}" class="flex-none">
+<div x-data="{}" class="flex-grow min-h-screen">
   <div class="container mx-auto w-full">
     <% if(isLoggedIn){ %> <% homeContent.forEach(function(doc){%>
     <div class="container">

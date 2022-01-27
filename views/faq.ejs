@@ -2,7 +2,7 @@
 
 <%- include('components/navbar',{isLoggedIn:isLoggedIn,home:false,wishlist:false,history:false,faq:true}) %>
 
-<div x-data="{modify:false}" class="flex-grow">
+<div x-data="{modify:false}" class="flex-grow min-h-screen">
 
     <div class="container mt-6">
         <h1 class="page-title">FAQs</h1>
@@ -10,13 +10,13 @@
         <div class="container mx-auto mt-8 w-11/12 lg:w-1/2 text-center">
             <% if(!faqs||faqs.length===0){ %>
                <a href="/create-faq" class="mx-auto">
-                   <button class="p-3 bg-[#D53715] text-white hover:bg-[#D53715]/80">Add FAQs</button>
+                   <button class="p-3 bg-cordovan text-white hover:bg-cordovan/80">Add FAQs</button>
                </a> 
             <% } else {%>
 
                 <!-- Add faq -->
                 <template x-if="modify">
-                    <a href="/create-faq"><button class="p-3 bg-[#D53715] text-white hover:bg-[#D53715]/80">
+                    <a href="/create-faq"><button class="p-3 bg-cordovan text-white hover:bg-cordovan/80">
                         New Question
                     </button></a>
                 </template>

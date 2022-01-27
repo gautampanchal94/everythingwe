@@ -1,7 +1,5 @@
 const express = require("express");
 
-const { t } = require("typy");
-
 const User = require("../models/user");
 
 const router = express.Router();

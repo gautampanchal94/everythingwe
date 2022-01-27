@@ -2,27 +2,12 @@
 
 <%- include('components/navbar',{isLoggedIn:isLoggedIn,home:false,wishlist:true,history:false,faq:false}) %>
 
-<div class="flex-grow" x-data="{ modify: false }">
+<div class="flex-grow min-h-screen" x-data="{ modify: false }">
 
     <div class="container mt-6">
         <h1 class="page-title">Our Wishlist</h1>
     
         <div class="container mx-auto mt-8 w-11/12 lg:w-1/2 text-center">
-            <!-- <div class="block">
-                <img class="mx-auto object-cover w-3/5 h-56 shadow"
-                    src="https://www.hyperui.dev/photos/university-1.jpeg" alt="" />
-    
-                <div class="mx-auto p-4 w-3/5">
-                    <h5 class="text-xl font-bold text-gray-900">
-                        Finding the Journey to Mordor
-                    </h5>
-                    <p class="mt-2 text-gray-500">
-                        Lorem ipsum dolor sit amet consectetur, adipisicing elit. Ipsa libero
-                        labore natus atque, ducimus sed.
-                    </p>
-                </div>
-            </div> -->
-
 
             <% if(!wishes||wishes.length===0){ %>
                 <a href="/wish" class="mx-auto">

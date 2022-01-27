@@ -5,7 +5,7 @@ const express = require("express");
 const ejs = require("ejs");
 const mongoose = require("mongoose");
 const session = require("express-session");
-const MemoryStore = require("memorystore")(session);
+const mongodbStore = require("connect-mongodb-session");
 const flash = require("connect-flash");
 const passport = require("passport");
 const LocalStrategy = require("passport-local");
@@ -22,7 +22,14 @@ const wishRoutes = require("./routes/wish-routes");
 const faqRoutes = require("./routes/faq-routes");
 const { constants } = require("os");
 
+const MongoDBStore = mongodbStore(session);
+
 const app = express();
+
+const sessionStore = new MongoDBStore({
+  uri: process.env.databaseName,
+  collection: "sessions",
+});
 
 app.set("view engine", "ejs");
 app.set("views", path.join(__dirname, "views"));
@@ -35,16 +42,13 @@ app.set("trust proxy", 1);
 // session
 app.use(
   session({
-    cookie: {
-      secure: true,
-      maxAge: 86400000,
-    },
-    store: new MemoryStore({
-      checkPeriod: 8640000,
-    }),
     secret: process.env.SECRET,
     resave: false,
     saveUninitialized: false,
+    store: sessionStore,
+    cookie: {
+      maxAge: 2 * 24 * 60 * 60 * 1000,
+    },
   })
 );
 app.use(flash());
