@@ -25,7 +25,7 @@ const MongoDBStore = mongodbStore(session);
 const app = express();
 
 const sessionStore = new MongoDBStore({
-  uri: process.env.databaseName,
+  uri: process.env.DATABASE,
   collection: "sessions",
 });
 
