@@ -23,6 +23,7 @@
     "cssnano": "^5.0.16",
     "dotenv": "^14.2.0",
     "ejs": "^3.1.6",
+    "email-validator": "^2.0.4",
     "express": "^4.17.2",
     "express-session": "^1.17.2",
     "mongoose": "^6.1.7",
@@ -30,6 +31,7 @@
     "passport": "^0.5.2",
     "passport-local": "^1.0.0",
     "passport-local-mongoose": "^6.1.0",
+    "password-validator": "^5.2.1",
     "tmp": "^0.2.1"
   },
   "devDependencies": {

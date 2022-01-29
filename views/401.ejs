@@ -1,0 +1,13 @@
+<%- include('partials/header') %> <%-
+include('components/navbar',{isLoggedIn:isLoggedIn,home:true,wishlist:false,history:false,faq:false})%>
+
+<div class="flex-grow min-h-screen">
+  <div class="m-4 p-2 flex flex-col items-center justify-center text-center">
+    <h1 class="my-2 block text-7xl text-red-600 font-semibold">401 Error!</h1>
+    <p class="my-2 block text-2xl text-cordovan">
+      You are not authorized to access this Page.
+    </p>
+  </div>
+</div>
+
+<%- include('components/bottom-bar') %> <%- include('partials/footer') %>

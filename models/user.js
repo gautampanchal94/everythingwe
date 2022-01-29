@@ -10,31 +10,33 @@ const userSchema = new mongoose.Schema({
     pageTitle: {
       title: {
         type: String,
-        default: "Puchinda Chai",
+        default: "Everything WE",
       },
       content: {
         type: String,
-        default: "It's you, you idiot.",
+        default:
+          "a digital memorial diary gift of you and your closed with all your cherished and joyous moments",
       },
     },
     firstSubHeading: {
       title: {
         type: String,
-        default: "Project mission",
+        default: "Project Mission",
       },
       content: {
         type: String,
-        default: "To only let you know what you already know",
+        default: "To never let a moment go un-noticed",
       },
     },
     lastSubHeading: {
       title: {
         type: String,
-        default: "Want to Say Something?",
+        default: "Inside Everything We",
       },
       content: {
         type: String,
-        default: "Call Karna",
+        default:
+          "Make a virtual space for your partner where you can add memories and highlights of you and let them know that there is no-one other than them in your universe.",
       },
     },
   },

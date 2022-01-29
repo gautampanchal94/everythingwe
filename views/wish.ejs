@@ -1,68 +1,140 @@
 <%- include('partials/header') %>
 
 <div class="container bg-slate-100">
-    <div class="min-h-screen flex flex-col items-center justify-center text-center">
-        <div x-data class="bg-white w-5/6 md:w-2/5 p-5 md:p-8 shadow">
-            <!-- post --> 
-            <div class="mb-3">
-                <h6 class="text-3xl text-cordovan text-bold">
-                    <svg class="fill-cordovan w-12 h-12 mx-auto" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="m7 17.013 4.413-.015 9.632-9.54c.378-.378.586-.88.586-1.414s-.208-1.036-.586-1.414l-1.586-1.586c-.756-.756-2.075-.752-2.825-.003L7 12.583v4.43zM18.045 4.458l1.589 1.583-1.597 1.582-1.586-1.585 1.594-1.58zM9 13.417l6.03-5.973 1.586 1.586-6.029 5.971L9 15.006v-1.589z"></path><path d="M5 21h14c1.103 0 2-.897 2-2v-8.668l-2 2V19H8.158c-.026 0-.053.01-.079.01-.033 0-.066-.009-.1-.01H5V5h6.847l2-2H5c-1.103 0-2 .897-2 2v14c0 1.103.897 2 2 2z"></path></svg>
-                    <template x-if="<%=!isForEdit%>">
-                        <span>Add Wish</span>
-                    </template>
-                    <template x-if="<%=isForEdit%>">
-                        <span>Update Wish</span>
-                    </template>
-                </h6>
+  <div
+    class="min-h-screen flex flex-col items-center justify-center text-center"
+  >
+    <div x-data class="bg-white w-5/6 md:w-2/5 p-5 md:p-8 shadow">
+      <!-- post -->
+      <div class="mb-3">
+        <h6 class="text-3xl text-cordovan text-bold">
+          <svg
+            class="fill-cordovan w-12 h-12 mx-auto"
+            xmlns="http://www.w3.org/2000/svg"
+            viewBox="0 0 24 24"
+          >
+            <path
+              d="m7 17.013 4.413-.015 9.632-9.54c.378-.378.586-.88.586-1.414s-.208-1.036-.586-1.414l-1.586-1.586c-.756-.756-2.075-.752-2.825-.003L7 12.583v4.43zM18.045 4.458l1.589 1.583-1.597 1.582-1.586-1.585 1.594-1.58zM9 13.417l6.03-5.973 1.586 1.586-6.029 5.971L9 15.006v-1.589z"
+            ></path>
+            <path
+              d="M5 21h14c1.103 0 2-.897 2-2v-8.668l-2 2V19H8.158c-.026 0-.053.01-.079.01-.033 0-.066-.009-.1-.01H5V5h6.847l2-2H5c-1.103 0-2 .897-2 2v14c0 1.103.897 2 2 2z"
+            ></path>
+          </svg>
+          <template x-if="<%=!isForEdit%>">
+            <span>Add Wish</span>
+          </template>
+          <template x-if="<%=isForEdit%>">
+            <span>Update Wish</span>
+          </template>
+        </h6>
 
-                <!-- Add wish -->
-                <template x-if="<%=!isForEdit%>">
-                    <form action="/wish" method="POST" class="" enctype="multipart/form-data">
-                        <div class="m-2 text-left">
-                            <label for="wishTitle" class="block after:content-['*'] after:ml-0.5 after:text-red-500">Title</label>
-                            <input type="text" name="wishTitle" id="wishTitle" class="input" placeholder="Title" required>
-                        </div>
-                        <div class="m-2 text-left">
-                            <label for="wishContent" class="block after:content-['*'] after:ml-0.5 after:text-red-500">What you want to do?</label>
-                            <textarea name="wishContent" id="wishBody" rows="5" class="input placeholder:italic placeholder:text-slate-400" placeholder="Tell your story!"></textarea>  
-                        </div>
-                        <div class="m-2 text-left">
-                            <label for="wishImage" class="block  after:content-['*'] after:ml-0.5 after:text-red-500">Select Image</label>
-                            <input type="file" name="wishImage" id="wishImage" class="w-full py-2 file:mr-4 file:py-2 file:px-4
-                            file:rounded-full file:border-0
-                            file:text-sm file:font-semibold
-                            file:bg-pale-pink file:text-cordovan
-                            hover:file:bg-cordovan/40" required accept="image/jpg,image/png">
-                        </div>
-                        <button type="submit" class="btn-primary">Add</button>
-                    </form>
-                </template>
-
-                <!-- Edit wish -->
-                <template x-if="<%=isForEdit%>">
-                    <form action="/wish/<%=wish._id%>/edit" method="POST" class="" enctype="multipart/form-data">
-                        <div class="m-2 text-left">
-                            <label for="wishTitle" class="block after:content-['*'] after:ml-0.5 after:text-red-500">Title</label>
-                            <input type="text" name="wishTitle" id="wishTitle" class="input" value="<%=wish.title%>" placeholder="Title" required>
-                        </div>
-                        <div class="m-2 text-left">
-                            <label for="wishContent" class="block after:content-['*'] after:ml-0.5 after:text-red-500">Story</label>
-                            <textarea name="wishContent" id="wishBody" rows="5" class="input placeholder:italic placeholder:text-slate-400" placeholder="Tell your story!"><%= wish.content %></textarea>  
-                        </div>
-                        <div class="m-2 text-left">
-                            <label for="wishImage" class="block  after:content-['*'] after:ml-0.5 after:text-red-500">Select Image</label>
-                            <input type="file" name="wishImage" id="wishImage" class="w-full py-2 file:mr-4 file:py-2 file:px-4
-                            file:rounded-full file:border-0
-                            file:text-sm file:font-semibold
-                            file:bg-pale-pink file:text-cordovan
-                            hover:file:bg-cordovan/40" required accept="image/jpg,image/png">
-                        </div>
-                        <button type="submit" class="btn-primary">Update</button>
-                    </form>
-                </template>
+        <!-- Add wish -->
+        <template x-if="<%=!isForEdit%>">
+          <form
+            action="/wish"
+            method="POST"
+            class=""
+            enctype="multipart/form-data"
+          >
+            <div class="m-2 text-left">
+              <label for="wishTitle" class="block"
+                >Title<span class="ml-1 text-red-500">*</span></label
+              >
+              <input
+                type="text"
+                name="wishTitle"
+                id="wishTitle"
+                class="input"
+                placeholder="Title"
+                required
+              />
             </div>
-        </div>
+            <div class="m-2 text-left">
+              <label for="wishContent" class="block"
+                >What you want to do?<span class="ml-1 text-red-500"
+                  >*</span
+                ></label
+              >
+              <textarea
+                name="wishContent"
+                id="wishBody"
+                rows="5"
+                class="input placeholder:italic placeholder:text-slate-400"
+                placeholder="Tell your story!"
+              ></textarea>
+            </div>
+            <div class="m-2 text-left">
+              <label for="wishImage" class="block"
+                >Select Image<span class="ml-1 text-red-500">*</span></label
+              >
+              <input
+                type="file"
+                name="wishImage"
+                id="wishImage"
+                class="w-full py-2 file:mr-4 file:py-2 file:px-4 file:rounded-full file:border-0 file:text-sm file:font-semibold file:bg-pale-pink file:text-cordovan hover:file:bg-cordovan/40"
+                required
+                accept="image/jpg,image/png"
+              />
+            </div>
+            <button type="submit" class="btn-primary">Add</button>
+          </form>
+        </template>
+
+        <!-- Edit wish -->
+        <template x-if="<%=isForEdit%>">
+          <form
+            action="/wish/<%=wish._id%>/edit"
+            method="POST"
+            class=""
+            enctype="multipart/form-data"
+          >
+            <div class="m-2 text-left">
+              <label for="wishTitle" class="block"
+                >Title<span class="ml-1 text-red-500">*</span></label
+              >
+              <input
+                type="text"
+                name="wishTitle"
+                id="wishTitle"
+                class="input"
+                value="<%=wish.title%>"
+                placeholder="Title"
+                required
+              />
+            </div>
+            <div class="m-2 text-left">
+              <label for="wishContent" class="block"
+                >Story<span class="ml-1 text-red-500">*</span></label
+              >
+              <textarea
+                name="wishContent"
+                id="wishBody"
+                rows="5"
+                class="input placeholder:italic placeholder:text-slate-400"
+                placeholder="Tell your story!"
+              >
+<%= wish.content %></textarea
+              >
+            </div>
+            <div class="m-2 text-left">
+              <label for="wishImage" class="block"
+                >Select Image<span class="ml-1 text-red-500">*</span></label
+              >
+              <input
+                type="file"
+                name="wishImage"
+                id="wishImage"
+                class="w-full py-2 file:mr-4 file:py-2 file:px-4 file:rounded-full file:border-0 file:text-sm file:font-semibold file:bg-pale-pink file:text-cordovan hover:file:bg-cordovan/40"
+                required
+                accept="image/jpg,image/png"
+              />
+            </div>
+            <button type="submit" class="btn-primary">Update</button>
+          </form>
+        </template>
+      </div>
     </div>
+  </div>
 </div>
 
 <%- include('partials/footer') %>

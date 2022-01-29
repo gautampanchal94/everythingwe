@@ -82,17 +82,23 @@ app.get("/about", (req, res) => {
   }
 });
 
+app.use("/401", (req, res) => {
+  req.isAuthenticated()
+    ? res.render("401", { isLoggedIn: true })
+    : res.redirect("/login");
+});
+
 app.use((req, res) => {
   req.isAuthenticated()
     ? res.render("404", { isLoggedIn: true })
     : res.redirect("/login");
 });
 
-app.use(function (error, req, res, next) {
-  req.isAuthenticated()
-    ? res.render("500", { isLoggedIn: true })
-    : res.redirect("/login");
-});
+// app.use(function (error, req, res, next) {
+//   req.isAuthenticated()
+//     ? res.render("500", { isLoggedIn: true })
+//     : res.redirect("/login");
+// });
 
 const PORT = process.env.PORT || 3000;
 app.listen(PORT, () => {
