@@ -1,5 +1,7 @@
 @import url("https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:ital,wght@0,400;0,500;1,400;1,500&family=IBM+Plex+Sans:ital,wght@0,300;0,400;0,500;0,700;1,300;1,400;1,500;1,700&family=IBM+Plex+Serif:ital,wght@0,300;0,400;0,600;1,300;1,400;1,600&display=swap");
 
+@import url("https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;600;700;800;900&family=Open+Sans:wght@400;600;700&display=swap");
+
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
@@ -58,5 +60,5 @@
 }
 
 .nav-inactive {
-  @apply p-2 hover:text-cordovan transition duration-300 font-medium;
+  @apply p-2 text-cordovan font-semibold hover:font-extrabold transition duration-300;
 }
