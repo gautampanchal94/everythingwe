@@ -18,6 +18,14 @@ router.get("/", function (req, res) {
   }
 });
 
+router.get("/pricing",(req,res)=>{
+  if(req.isAuthenticated()){
+    res.render("pricing", { isLoggedIn:true});
+  }else{
+    res.render("pricing", { isLoggedIn:false});
+  }
+})
+
 router.get("/update-home", function (req, res) {
   if (req.isAuthenticated()) {
     User.find({ _id: req.user._id }, function (err, content) {

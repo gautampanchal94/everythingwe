@@ -11,6 +11,7 @@
             <div class="">
               <a href="/" class="flex items-center py-4 px-2">
                 <!-- TODO: Add Logo -->
+                <img src="./images/logo.svg" alt="Logo" class="h-10 w-10 mr-2"/>
                 <span class="font-medium text-lg text-cordovan"
                   >everything<span class="font-bold">WE</span></span
                 >
@@ -34,6 +35,11 @@
               <a href="/faq" :class="<%=faq%>?'nav-active':'nav-inactive'"
                 >FAQ</a
               >
+              <% if(!isLoggedIn) { %>
+              <a href="/pricing" :class="<%=pricing%>?'nav-active':'nav-inactive'"
+                >Pricing</a
+              >
+              <% } %>
             </div>
           </div>
           <!-- secondary navbar -->
@@ -115,12 +121,17 @@
           <% } else{ %>
           <div class="hidden md:flex items-center space-x-3">
             <a
+              href="https://tinyurl.com/myphudinachai"
+              class="py-2 px-2 text-cordovan hover:bg-cordovan hover:text-pale-pink transition duration-300 font-semibold" target="_blank"
+              >Demo</a
+            >
+            <a
               href="/login"
               class="py-2 px-2 text-cordovan hover:bg-cordovan hover:text-pale-pink transition duration-300 font-semibold"
               >Sign In</a
             >
             <a
-              href="https://my.forms.app/phudinachai/everything-we-registration"
+              href="https://my.forms.app/phudinachai/everything-we-registration" target="_blank"
               class="py-2 px-2 text-cordovan bg-pale-pink hover:bg-cordovan hover:text-pale-pink transition duration-300 font-semibold"
               >Sign Up</a
             >
@@ -186,6 +197,9 @@
             <a href="/logout" class="block text-lg py-2 text-center">Logout</a>
           </li>
           <% } else { %>
+          <li class="">
+            <a href="/pricing" class="block text-lg py-2 text-center">Pricing</a>
+          </li>
           <li class="">
             <a href="/login" class="block text-lg py-2 text-center">Sign In</a>
           </li>

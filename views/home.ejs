@@ -1,81 +1,77 @@
-<%- include('partials/header') %> <%-
-include('components/navbar',{isLoggedIn:isLoggedIn,home:true,wishlist:false,history:false,faq:false})
-%>
+<%- include('partials/header') %>
+  <%- include('components/navbar',{isLoggedIn:isLoggedIn,home:true,wishlist:false,history:false,faq:false,pricing:false}) %>
 
-<div x-data="{}" class="flex-grow min-h-screen">
-  <div class="container mx-auto w-full">
-    <% if(isLoggedIn){ %> <% homeContent.forEach(function(doc){%>
-    <div class="container text-center">
-      <div
-        class="bg-cover bg-no-repeat md:bg-[center_top_-12rem] h-96 flex flex-col justify-center items-center space-y-5"
-        style="
-          background-image: url(https://images.unsplash.com/photo-1561336526-2914f13ceb36?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1170&q=80);
-        "
-      >
-        <h1
-          class="text-4xl md:text-5xl font-serif font-bold text-white px-5 md:px-9"
-        >
-          <%=doc.homeContent.pageTitle.title%>
-        </h1>
-        <p class="font-serif text-white italic text-lg md:text-xl px-5 md:px-9">
-          <%=doc.homeContent.pageTitle.content%>
-        </p>
-      </div>
-      <div class="h-56 flex flex-col justify-center items-center space-y-3">
-        <h2 class="text-2xl md:text-4xl font-bold text-cordovan px-5 md:px-9">
-          <%=doc.homeContent.firstSubHeading.title%>
-        </h2>
-        <p class="font-serif text-lg md:text-xl px-5 md:px-9 italic">
-          <%=doc.homeContent.firstSubHeading.content%>
-        </p>
-      </div>
-      <div class="h-56 flex flex-col justify-center items-center space-y-3">
-        <h2 class="text-2xl md:text-4xl font-bold text-cordovan px-5 md:px-9">
-          <%=doc.homeContent.lastSubHeading.title%>
-        </h2>
-        <p class="font-serif text-lg md:text-xl px-5 md:px-9 italic">
-          <%=doc.homeContent.lastSubHeading.content%>
-        </p>
+    <div x-data="{}" class="flex-grow min-h-screen">
+      <div class="container mx-auto w-full">
+        <% if(isLoggedIn){ %>
+          <% homeContent.forEach(function(doc){%>
+            <div class="container text-center">
+              <div
+                class="bg-cover bg-no-repeat bg-center h-96 flex flex-col justify-center items-center space-y-5"
+                style="
+                  background-image: url(https://images.unsplash.com/photo-1580508158643-4bf9f8da03c6?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1170&q=80);
+                  ">
+                <h1 class="text-4xl md:text-5xl font-bold text-white px-5 md:px-9">
+                  <%=doc.homeContent.pageTitle.title%>
+                </h1>
+                <p class="font-serif text-white italic text-lg w-64 md:w-96 md:text-xl px-5 md:px-9">
+                  <%=doc.homeContent.pageTitle.content%>
+                </p>
+              </div>
+              <div class="h-56 flex flex-col justify-center items-center space-y-3">
+                <h2 class="text-2xl md:text-4xl font-bold text-cordovan px-5 md:px-9">
+                  <%=doc.homeContent.firstSubHeading.title%>
+                </h2>
+                <p class="font-serif text-lg md:text-xl px-5 md:px-9 italic">
+                  <%=doc.homeContent.firstSubHeading.content%>
+                </p>
+              </div>
+              <div class="h-56 flex flex-col justify-center items-center space-y-3">
+                <h2 class="text-2xl md:text-4xl font-bold text-cordovan px-5 md:px-9">
+                  <%=doc.homeContent.lastSubHeading.title%>
+                </h2>
+                <p class="font-serif text-lg md:text-xl px-5 md:px-9 italic">
+                  <%=doc.homeContent.lastSubHeading.content%>
+                </p>
+              </div>
+            </div>
+            <%})%>
+              <% } else{ %>
+                <div class="container text-center">
+                  <div
+                    class="bg-cover bg-no-repeat bg-center h-96 flex flex-col justify-center items-center space-y-5"
+                    style="
+          background-image: url(https://images.unsplash.com/photo-1580508158643-4bf9f8da03c6?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1170&q=80);
+        ">
+                    <h1 class="text-4xl md:text-5xl font-bold text-white px-5 md:px-9">
+                      Everything WE
+                    </h1>
+                    <p class="font-serif text-white italic text-lg w-64 md:w-96 md:text-xl px-5 md:px-9">
+                      a digital memorial diary gift of you and your closed with all your
+                      cherished and joyous moments
+                    </p>
+                  </div>
+                  <div class="h-56 flex flex-col justify-center items-center space-y-3">
+                    <h2 class="text-2xl md:text-4xl font-bold text-cordovan px-5 md:px-9">
+                      Project Mission
+                    </h2>
+                    <p class="font-serif text-lg md:text-xl px-5 md:px-9 italic">
+                      To never let a moment go un-noticed
+                    </p>
+                  </div>
+                  <div class="h-56 flex flex-col justify-center items-center space-y-3">
+                    <h2 class="text-2xl md:text-4xl font-bold text-cordovan px-5 md:px-9">
+                      Inside Everything We
+                    </h2>
+                    <p class="font-serif text-lg md:text-xl px-5 md:px-9 italic">
+                      Make a virtual space for your partner where you can add memories and
+                      highlights of you and let them know that there is no-one other than
+                      them in your universe.
+                    </p>
+                  </div>
+                </div>
+                <% } %>
       </div>
     </div>
-    <%})%> <% } else{ %>
-    <div class="container text-center">
-      <div
-        class="bg-cover bg-no-repeat md:bg-[center_top_-12rem] h-96 flex flex-col justify-center items-center space-y-5"
-        style="
-          background-image: url(https://images.unsplash.com/photo-1561336526-2914f13ceb36?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1170&q=80);
-        "
-      >
-        <h1
-          class="text-4xl md:text-5xl font-serif font-bold text-white px-5 md:px-9"
-        >
-          Everything WE
-        </h1>
-        <p class="font-serif text-white italic text-lg md:text-xl px-5 md:px-9">
-          a digital memorial diary gift of you and your closed with all your
-          cherished and joyous moments
-        </p>
-      </div>
-      <div class="h-56 flex flex-col justify-center items-center space-y-3">
-        <h2 class="text-2xl md:text-4xl font-bold text-cordovan px-5 md:px-9">
-          Project Mission
-        </h2>
-        <p class="font-serif text-lg md:text-xl px-5 md:px-9 italic">
-          To never let a moment go un-noticed
-        </p>
-      </div>
-      <div class="h-56 flex flex-col justify-center items-center space-y-3">
-        <h2 class="text-2xl md:text-4xl font-bold text-cordovan px-5 md:px-9">
-          Inside Everything We
-        </h2>
-        <p class="font-serif text-lg md:text-xl px-5 md:px-9 italic">
-          Make a virtual space for your partner where you can add memories and
-          highlights of you and let them know that there is no-one other than
-          them in your universe.
-        </p>
-      </div>
-    </div>
-    <% } %>
-  </div>
-</div>
-<%- include('components/bottom-bar') %> <%- include('partials/footer') %>
+    <%- include('components/bottom-bar') %>
+    <%- include('partials/footer') %>

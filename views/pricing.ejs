@@ -1,0 +1,23 @@
+<%- include('partials/header') %>
+<%- include('components/navbar',{isLoggedIn:isLoggedIn,home:false,wishlist:false,history:false,faq:false,pricing:true}) %>
+
+<div class="flex-grow justify-center items-center" x-data>
+    <div class="container mx-auto mt-8 w-11/12 lg:w-1/2 text-center">
+        <div class="shadow-md bg-pale-pink text-cordovan border rounded overflow-hidden h-96 my-12 flex flex-col justify-between group ">
+            <h5 class="text-xl py-4 my-3 border-b border-cordovan">Give Gift to your love ones</h5>
+            <div class="my-3 px-4">
+                <p class="text-xl my-2"><span class="line-through mx-1 my-2">&#8377;799</span><span class="mx-1 px-3 py-1 rounded-full bg-cordovan text-white">save 68%</span></p>
+                <p class="text-3xl my-2 px-4 font-medium">at &#8377;<span class="text-6xl">249</span></p>
+                <span class="text-lg font-semibold">4 month access</span>
+                <p class="text-xl my-2 px-12">Renew at 49 INR for the next 4 months</p>
+            </div>
+            <a href="https://my.forms.app/phudinachai/everything-we-registration" class="text-xl font-semibold  w-full px-3 py-4 bg-cordovan text-white flex justify-center items-center space-x-2">
+                <p>Get Started</p>
+                <svg class="fill-white h-8" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="m11.293 17.293 1.414 1.414L19.414 12l-6.707-6.707-1.414 1.414L15.586 11H6v2h9.586z"></path></svg>
+            </a>
+        </div>
+    </div>
+</div>
+
+<%- include('components/bottom-bar') %>
+<%- include('partials/footer') %>
