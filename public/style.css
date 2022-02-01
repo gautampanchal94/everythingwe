@@ -1119,9 +1119,6 @@ Ensure the default browser behavior of the `hidden` attribute.
   --tw-bg-opacity: 1;
   background-color: rgb(236 212 212 / var(--tw-bg-opacity));
 }
-.bg-contain{
-  background-size: contain;
-}
 .bg-cover{
   background-size: cover;
 }
