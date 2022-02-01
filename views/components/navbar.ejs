@@ -22,6 +22,7 @@
               <a href="/" :class="<%=home%>?'nav-active':'nav-inactive'"
                 >Home</a
               >
+              <% if(isLoggedIn) {%>
               <a
                 href="/wishlist"
                 :class="<%=wishlist%>?'nav-active':'nav-inactive'"
@@ -35,6 +36,7 @@
               <a href="/faq" :class="<%=faq%>?'nav-active':'nav-inactive'"
                 >FAQ</a
               >
+              <% } %> 
               <% if(!isLoggedIn) { %>
               <a href="/pricing" :class="<%=pricing%>?'nav-active':'nav-inactive'"
                 >Pricing</a
@@ -174,6 +176,7 @@
           <li class="mobile-active">
             <a href="/" class="block text-lg py-2 text-center">Home</a>
           </li>
+          <% if(isLoggedIn){ %>
           <li class="">
             <a href="/wishlist" class="block text-lg py-2 text-center"
               >Wishlist</a
@@ -187,7 +190,6 @@
           <li class="">
             <a href="/faq" class="block text-lg py-2 text-center">FAQ</a>
           </li>
-          <% if(isLoggedIn){ %>
           <li class="">
             <a href="/update-home" class="block text-lg py-2 text-center"
               >Update Home</a
