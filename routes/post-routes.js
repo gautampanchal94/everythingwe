@@ -7,7 +7,7 @@ router.get("/history", function (req, res) {
   if (req.isAuthenticated()) {
     Post.find({ user_id: req.user._id }, function (err, posts) {
       res.render("history", {
-        posts: posts.reverse(),
+        posts: posts,
         isLoggedIn: true,
       });
     });

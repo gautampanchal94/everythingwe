@@ -7,7 +7,7 @@ const router = express.Router();
 router.get("/faq", (req, res) => {
   if (req.isAuthenticated()) {
     Faq.find({ user_id: req.user._id }, function (err, faqs) {
-      res.render("faq", { faqs: faqs.reverse(), isLoggedIn: true });
+      res.render("faq", { faqs: faqs, isLoggedIn: true });
     });
   } else {
     res.redirect("/login");
