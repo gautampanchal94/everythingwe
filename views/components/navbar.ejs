@@ -10,7 +10,6 @@
             <!-- logo -->
             <div class="">
               <a href="/" class="flex items-center py-2 px-2">
-                <!-- TODO: Add Logo -->
                 <img src="./images/logo.svg" alt="Logo" class="h-14 w-14 mr-1"/>
                 <span class="font-medium text-lg text-cordovan"
                   >everything<span class="font-bold">WE</span></span
@@ -38,6 +37,9 @@
               >
               <% } %> 
               <% if(!isLoggedIn) { %>
+              <a href="/product" :class="<%=product%>?'nav-active':'nav-inactive'"
+                >Product</a
+              >
               <a href="/pricing" :class="<%=pricing%>?'nav-active':'nav-inactive'"
                 >Pricing</a
               >
@@ -199,6 +201,9 @@
             <a href="/logout" class="block text-lg py-2 text-center">Logout</a>
           </li>
           <% } else { %>
+          <li class="">
+            <a href="/product" class="block text-lg py-2 text-center">Product</a>
+          </li>
           <li class="">
             <a href="/pricing" class="block text-lg py-2 text-center">Pricing</a>
           </li>

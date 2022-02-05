@@ -74,13 +74,6 @@ app.use(postRoutes);
 app.use(wishRoutes);
 app.use(faqRoutes);
 
-app.get("/about", (req, res) => {
-  if (req.isAuthenticated()) {
-    res.render("about", { isLoggedIn: true });
-  } else {
-    res.redirect("/login");
-  }
-});
 
 app.use("/401", (req, res) => {
   req.isAuthenticated()

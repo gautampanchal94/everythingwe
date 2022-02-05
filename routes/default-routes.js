@@ -69,4 +69,12 @@ router.post("/update-home", async function (req, res) {
   }
 });
 
+router.get("/product", (req, res) => {
+  if (req.isAuthenticated()) {
+    res.render("product", { isLoggedIn: true });
+  } else {
+    res.render("product", { isLoggedIn: false });
+  }
+});
+
 module.exports = router;
