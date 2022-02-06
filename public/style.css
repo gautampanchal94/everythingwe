@@ -1450,6 +1450,8 @@ Ensure the default browser behavior of the `hidden` attribute.
 }
 
 .page-title{
+  padding-left: 0.75rem;
+  padding-right: 0.75rem;
   text-align: center;
   font-family: IBM Plex Serif, serif;
   font-size: 2.25rem;
